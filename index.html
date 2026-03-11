@@ -1,0 +1,3387 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"/>
+  <title>Somtel – Home</title>
+  <style>
+    :root{
+      --y1:#FFD700;
+      --y2:#E6A800;
+      --y3:#C98B00;
+      --y4:#A06F00;
+      --y-pale:#FFF9DC;
+      --y-soft:#FFF3B0;
+      --y-bg:#FFFFFF;
+      --card:#FFFFFF;
+      --ink:#2A1F00;
+      --ink-2:#5C4500;
+      --muted:#9C7F2A;
+      --green:#1A9648;
+      --green-lt:#D4F5E3;
+      --amber:#D07000;
+      --amber-lt:#FFF0C8;
+      --red:#C8271A;
+      --red-lt:#FDEAE8;
+      --teal:#0A8070;
+      --teal-lt:#C8F0EA;
+      --r:18px;--r-sm:12px;--r-xs:8px;
+      --sh:0 6px 24px rgba(160,111,0,.12);
+      --sh-sm:0 3px 12px rgba(160,111,0,.09);
+      --sh-xs:0 2px 6px rgba(160,111,0,.07);
+    }
+    *{box-sizing:border-box;-webkit-tap-highlight-color:transparent;margin:0;padding:0}
+    body{
+      font-family:ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+      font-size:14px;color:var(--ink);
+      background:linear-gradient(145deg,#C98B00 0%,#A06F00 40%,#7A5200 100%);
+      display:flex;justify-content:center;align-items:flex-start;
+      padding:20px 10px 40px;min-height:100vh;
+    }
+    .phone{
+      width:390px;
+      height:844px;
+      max-width:100%;
+      max-height:calc(100vh - 60px);
+      background:#FFFFFF;
+      border-radius:44px;overflow:hidden;
+      box-shadow:0 40px 90px rgba(0,0,0,.40),0 0 0 1.5px rgba(255,215,0,.4);
+      display:flex;flex-direction:column;position:relative;
+    }
+
+    /* ═══════════════════════════════════════════
+       HEADER — all-gold redesign, zero black
+    ═══════════════════════════════════════════ */
+
+    .header{
+      position:relative;overflow:hidden;
+      background:linear-gradient(165deg,#FFE566 0%,#FFD700 28%,#F0B800 55%,#C98B00 100%);
+      /* bottom curve carved via the body top-radius */
+      padding-bottom:26px;
+    }
+    .header::before{
+      content:"";position:absolute;inset:0;z-index:0;pointer-events:none;
+      background:radial-gradient(ellipse at 50% -10%,rgba(255,255,255,.38) 0%,transparent 55%);
+    }
+    .header::after{
+      content:"";position:absolute;inset:0;z-index:0;pointer-events:none;
+      background-image:repeating-linear-gradient(
+        135deg,
+        rgba(255,255,255,.06) 0px,rgba(255,255,255,.06) 1px,
+        transparent 1px,transparent 18px
+      );
+    }
+    /* wave: purely decorative bottom-curve, NO overlap with content */
+    .h-wave{
+      position:absolute;bottom:0;left:0;right:0;
+      height:22px;
+      background:#FFFFFF;
+      border-radius:22px 22px 0 0;
+      z-index:3;
+      pointer-events:none;
+    }
+
+    /* ── Status bar ── */
+    .h-status{
+      position:relative;z-index:5;
+      display:flex;align-items:center;justify-content:space-between;
+      padding:13px 20px 0;
+    }
+    .h-time{font-size:13px;font-weight:700;color:rgba(80,50,0,.80);letter-spacing:.2px}
+    .h-sr{display:flex;align-items:center;gap:7px}
+    .s-bars{display:flex;align-items:flex-end;gap:2.5px}
+    .sb{width:3.5px;border-radius:2px;background:rgba(120,70,0,.20)}
+    .sb.on{background:rgba(80,50,0,.70)}
+    .sb:nth-child(1){height:4px}.sb:nth-child(2){height:7px}.sb:nth-child(3){height:11px}.sb:nth-child(4){height:14px}
+    .h-net{font-size:10.5px;font-weight:800;color:rgba(80,50,0,.75);letter-spacing:.5px}
+    .h-bat{width:22px;height:11px;border-radius:3px;border:1.5px solid rgba(80,50,0,.30);position:relative}
+    .h-bat::after{content:"";position:absolute;top:50%;right:-4px;transform:translateY(-50%);width:2.5px;height:5px;border-radius:0 1.5px 1.5px 0;background:rgba(80,50,0,.25)}
+    .h-bat-fill{position:absolute;top:1.5px;left:1.5px;bottom:1.5px;width:72%;border-radius:1.5px;background:rgba(80,50,0,.55)}
+
+    /* ── Brand row ── */
+    .h-brand-row{
+      position:relative;z-index:5;
+      display:flex;align-items:center;justify-content:space-between;
+      padding:10px 18px 8px;
+    }
+    .h-logo-wrap{display:flex;align-items:center;gap:11px}
+    .logo-badge{
+      width:48px;height:48px;border-radius:14px;
+      background:#FFFFFF;
+      border:2px solid rgba(255,255,255,.90);
+      box-shadow:0 2px 0 rgba(160,100,0,.18),0 4px 16px rgba(160,100,0,.22);
+      display:grid;place-items:center;overflow:hidden;flex-shrink:0;
+    }
+    .logo-badge img{width:33px;height:40px;object-fit:contain;display:block}
+    .h-brand-text{display:flex;flex-direction:column;gap:1px}
+    .h-brand-name{
+      font-size:19px;font-weight:900;letter-spacing:1.6px;line-height:1;
+      color:rgba(60,35,0,.88);
+    }
+    .h-brand-name em{font-style:normal;font-weight:400;color:rgba(60,35,0,.48)}
+    .h-brand-tag{font-size:9.5px;font-weight:500;color:rgba(60,35,0,.50);letter-spacing:.3px}
+
+    /* Action buttons */
+    .h-actions{display:flex;gap:8px}
+    .hbtn{
+      width:38px;height:38px;border-radius:12px;
+      border:1.5px solid rgba(255,255,255,.65);
+      background:rgba(255,255,255,.30);
+      display:grid;place-items:center;cursor:pointer;position:relative;
+      transition:background .18s;
+    }
+    .hbtn:hover{background:rgba(255,255,255,.50)}
+    .hbtn svg{stroke:rgba(60,35,0,.72)}
+    .h-badge{
+      position:absolute;top:-4px;right:-4px;
+      width:8px;height:8px;border-radius:999px;
+      background:#E83030;border:1.5px solid #FFD700;
+      box-shadow:0 0 5px rgba(232,48,48,.55);
+    }
+
+    /* ── Phone number ── */
+    .h-number-row{position:relative;z-index:5;padding:4px 18px 0}
+    .h-number-label{
+      font-size:9px;font-weight:700;letter-spacing:1.4px;
+      text-transform:uppercase;color:rgba(60,35,0,.46);margin-bottom:3px;
+    }
+    .h-number-val{
+      font-size:27px;font-weight:800;
+      color:rgba(50,28,0,.88);letter-spacing:2.5px;line-height:1;
+    }
+    .h-number-val b{color:rgba(40,22,0,.95);font-weight:900}
+
+    /* ═══════════════════════════════════
+       4 INFO ITEMS — simple horizontal row
+       label above · value below · divider between
+    ═══════════════════════════════════ */
+    .h-info-row{
+      position:relative;z-index:6;
+      display:flex;align-items:stretch;
+      margin:12px 18px 8px;
+      background:rgba(255,255,255,.28);
+      border:1px solid rgba(255,255,255,.60);
+      border-radius:16px;
+      overflow:hidden;
+    }
+    .h-info-item{
+      flex:1;
+      display:flex;flex-direction:column;align-items:center;justify-content:center;
+      padding:10px 4px;gap:3px;
+      position:relative;
+    }
+    /* vertical divider between items */
+    .h-info-item+.h-info-item::before{
+      content:"";
+      position:absolute;left:0;top:20%;bottom:20%;
+      width:1px;background:rgba(160,100,0,.20);
+    }
+    .hii-icon{
+      width:26px;height:26px;border-radius:8px;
+      background:rgba(255,255,255,.45);
+      display:grid;place-items:center;margin-bottom:1px;
+      border:1px solid rgba(255,255,255,.70);
+    }
+    .hii-icon svg{display:block}
+    .hii-lbl{
+      font-size:8px;font-weight:700;letter-spacing:.5px;
+      text-transform:uppercase;color:rgba(60,35,0,.48);line-height:1;
+    }
+    .hii-val{
+      font-size:11px;font-weight:700;
+      color:rgba(45,25,0,.88);line-height:1;
+      white-space:nowrap;
+    }
+    /* tiny coloured dot for status */
+    .hii-dot{
+      display:inline-block;width:5px;height:5px;border-radius:999px;
+      vertical-align:middle;margin-right:3px;
+    }
+    .hii-dot.on {background:#1A9648;box-shadow:0 0 4px rgba(26,150,72,.55)}
+    .hii-dot.off{background:rgba(160,100,0,.35)}
+
+    .h-sim-row{ display:none }
+    .h-wave-pad{ display:none }
+
+
+    /* ═══ BODY ═══ */
+    .body{flex:1;min-height:0;overflow-y:auto;overflow-x:hidden;background:var(--y-bg);padding:2px 0 90px;scrollbar-width:none;-ms-overflow-style:none;}
+    .body::-webkit-scrollbar{display:none;width:0;height:0;}
+    .sec-head{display:flex;align-items:center;justify-content:space-between;padding:16px 18px 10px}
+    .sec-head h3{font-size:15px;font-weight:600;color:var(--ink);letter-spacing:-.1px}
+    .see-all{font-size:12px;font-weight:500;color:var(--y3);text-decoration:none}
+
+    /* ═══ ACTIVE PLANS ═══ */
+    .ap-scroll{display:flex;gap:12px;overflow-x:auto;padding:0 18px 10px;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch}
+    .ap-scroll::-webkit-scrollbar{height:0}
+    .apc{scroll-snap-align:start;min-width:264px;background:var(--card);border:1px solid rgba(230,168,0,.18);border-radius:var(--r);box-shadow:var(--sh);padding:14px 14px 12px;position:relative;overflow:hidden;flex:0 0 auto}
+    .apc::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--y1) 0%,var(--y2) 100%);border-radius:var(--r) var(--r) 0 0}
+    .apc.expiring::before{background:linear-gradient(90deg,var(--amber) 0%,#E89020 100%)}
+    .apc.autorn::before{background:linear-gradient(90deg,var(--teal) 0%,#18B0A0 100%)}
+    .chip{display:inline-flex;align-items:center;gap:4px;font-size:10px;font-weight:500;padding:3px 9px;border-radius:999px}
+    .chip::before{content:"";width:5px;height:5px;border-radius:999px;background:currentColor;opacity:.65}
+    .chip.active{color:var(--green);background:var(--green-lt)}
+    .chip.expiring{color:var(--amber);background:var(--amber-lt)}
+    .chip.auto{color:var(--teal);background:var(--teal-lt)}
+    .ap-top{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:9px}
+    .ap-name{font-size:14.5px;font-weight:600;color:var(--ink);line-height:1.2}
+    .ap-type{font-size:10.5px;font-weight:400;color:var(--muted);margin-top:3px}
+    .ap-prog{margin:9px 0 5px}
+    .ap-prog-row{display:flex;justify-content:space-between;font-size:10.5px;font-weight:400;color:var(--muted);margin-bottom:5px}
+    .ap-prog-row .used{color:var(--ink);font-weight:500}
+    .ptrack{height:5px;border-radius:999px;background:#F5E9A0;overflow:hidden}
+    .pfill{height:100%;border-radius:999px;background:linear-gradient(90deg,var(--y1) 0%,var(--y2) 100%)}
+    .pfill.warn{background:linear-gradient(90deg,var(--amber) 0%,#E89020 100%)}
+    .ap-exp{font-size:10.5px;color:var(--muted);font-weight:400;margin-bottom:10px}
+    .ap-exp em{font-style:normal;color:var(--ink);font-weight:500}
+    .ap-actions{display:flex;gap:6px}
+    .ap-btn{flex:1;padding:8px 0;border-radius:var(--r-xs);font-size:12px;font-weight:600;cursor:pointer;border:none;text-align:center}
+    .ap-btn.prim{background:var(--y1);color:var(--ink-2);box-shadow:0 2px 8px rgba(160,111,0,.22)}
+    .c-dots{display:flex;justify-content:center;gap:5px;padding:2px 0 0}
+    .cd{width:5px;height:5px;border-radius:999px;background:rgba(160,111,0,.18);transition:all .3s}
+    .cd.on{width:16px;background:var(--y2)}
+
+    /* ═══ DATA USAGE ═══ */
+    /* Plan switcher */
+    .plan-switcher{
+      display:flex;gap:6px;overflow-x:auto;padding:0 0 10px;
+      scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;
+    }
+    .plan-switcher::-webkit-scrollbar{height:0}
+    .psw-tab{
+      scroll-snap-align:start;flex:0 0 auto;
+      display:flex;align-items:center;gap:6px;
+      padding:6px 12px;border-radius:999px;cursor:pointer;
+      font-size:11px;font-weight:600;border:1.5px solid rgba(201,139,0,.25);
+      background:var(--y-pale);color:var(--muted);
+      transition:all .18s;white-space:nowrap;
+    }
+    .psw-tab.sel{
+      background:var(--y1);color:var(--ink-2);
+      border-color:var(--y2);box-shadow:0 2px 8px rgba(160,111,0,.22);
+    }
+    .psw-dot{width:6px;height:6px;border-radius:999px;background:currentColor;opacity:.6}
+    .psw-tab.sel .psw-dot{opacity:1}
+    /* Panel visibility */
+    .usage-panel{display:none;animation:fadeIn .2s ease}
+    .usage-panel.active{display:block}
+    @keyframes fadeIn{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:translateY(0)}}
+    .usage-card{margin:0 18px;background:var(--card);border:1px solid rgba(230,168,0,.18);border-radius:var(--r);box-shadow:var(--sh);padding:14px 14px 12px;overflow:hidden}
+    .usage-hd{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:10px}
+    .usage-hd-left .title{font-size:14.5px;font-weight:600;color:var(--ink);margin:0 0 2px}
+    .usage-hd-left .sub{font-size:10.5px;font-weight:400;color:var(--muted)}
+    .usage-trend{font-size:11px;font-weight:500;background:var(--green-lt);color:var(--green);padding:3px 9px;border-radius:999px}
+    .ftabs{display:flex;gap:5px;margin-bottom:12px}
+    .ftab{flex:1;padding:6px 0;text-align:center;font-size:11px;font-weight:500;border-radius:var(--r-xs);cursor:pointer;border:1px solid transparent;transition:all .18s;color:var(--muted);background:var(--y-pale)}
+    .ftab.sel{background:var(--y1);color:var(--ink-2);font-weight:600}
+    .chart-wrap{position:relative;height:76px;margin-bottom:7px}
+    .chart-svg{width:100%;height:100%;overflow:visible}
+    .chart-grid-line{stroke:#F5E8A0;stroke-width:1}
+    .chart-line{fill:none;stroke:var(--y1);stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round}
+    .chart-area{fill:url(#cg);opacity:.35}
+    .c-dot{fill:#fff;stroke:var(--y1);stroke-width:2}
+    .c-dot.peak{fill:var(--y1)}
+    .day-labels{display:flex;justify-content:space-between;font-size:9.5px;font-weight:400;color:var(--muted);padding:0 2px;margin-bottom:10px}
+    .usage-stats{display:flex;gap:7px}
+    .ustat{flex:1;background:var(--y-pale);border-radius:var(--r-sm);padding:9px 10px;border:1px solid rgba(230,168,0,.15)}
+    .ustat-lbl{font-size:9.5px;font-weight:500;color:var(--muted);margin-bottom:3px;text-transform:uppercase;letter-spacing:.4px}
+    .ustat-val{font-size:17px;font-weight:600;line-height:1;color:var(--ink)}
+    .ustat-val.g{color:var(--green)}
+    .ustat-val.gd{color:var(--y3)}
+    .ustat-val.a{color:var(--amber)}
+    .ustat-note{font-size:9.5px;font-weight:400;color:var(--muted);margin-top:2px}
+    .reset-row{display:flex;align-items:center;gap:5px;margin-top:10px;font-size:10.5px;font-weight:400;color:var(--muted)}
+    .reset-row mark{background:var(--y-soft);color:var(--y3);font-weight:500;padding:2px 7px;border-radius:999px}
+
+    /* ═══ SHORTCUTS ═══ */
+    .shortcuts{margin:0 18px;background:var(--card);border:1px solid rgba(230,168,0,.15);border-radius:var(--r);box-shadow:var(--sh-sm);padding:14px 8px 14px}
+    .grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px 5px}
+    .grid-3{grid-template-columns:repeat(3,1fr);gap:16px 4px}
+    .tile{display:flex;flex-direction:column;align-items:center;gap:7px;text-align:center;cursor:pointer;min-width:0}
+    .tile .ico{
+      width:48px;height:48px;border-radius:14px;
+      background:var(--y-pale);
+      border:1.5px solid rgba(230,168,0,.25);
+      display:grid;place-items:center;
+      box-shadow:0 2px 8px rgba(160,111,0,.10);
+      transition:transform .15s,box-shadow .15s;
+      color:rgba(50,35,0,.65);
+    }
+    .tile:hover .ico{transform:translateY(-3px);box-shadow:0 6px 18px rgba(160,111,0,.18)}
+    .tile:active .ico{transform:scale(.94)}
+    .tile-lbl{font-size:9.5px;font-weight:600;color:var(--ink-2);line-height:1;white-space:nowrap !important;overflow:hidden;text-overflow:ellipsis;width:100%;display:block}
+
+    /* Per-tile accent colours */
+    .ico-bundles  {background:linear-gradient(145deg,#FFF5C2,#FFE566);border-color:rgba(255,215,0,.45);color:rgba(120,70,0,.80)}
+    .ico-topup    {background:linear-gradient(145deg,#D4F5E3,#A8EAC8);border-color:rgba(26,150,72,.25);color:rgba(15,100,50,.80)}
+    .ico-addons   {background:linear-gradient(145deg,#E8F0FF,#C8DAFF);border-color:rgba(80,120,220,.25);color:rgba(50,80,180,.80)}
+    .ico-enterprise{background:linear-gradient(145deg,#FFF0C8,#FFD97A);border-color:rgba(210,140,0,.30);color:rgba(130,80,0,.80)}
+    .ico-reseller {background:linear-gradient(145deg,#EDE8FF,#D4C8FF);border-color:rgba(120,80,220,.25);color:rgba(90,50,180,.80)}
+    .ico-support  {background:linear-gradient(145deg,#FFE8E8,#FFC8C8);border-color:rgba(200,40,40,.22);color:rgba(180,30,30,.80)}
+
+    /* ═══ ESIM BANNER ═══ */
+    .banner{margin:0 18px;border-radius:var(--r);overflow:hidden;box-shadow:var(--sh-sm);border:1px solid rgba(230,168,0,.28);background:linear-gradient(130deg,var(--y-soft) 0%,var(--y1) 55%,var(--y2) 100%);position:relative}
+    .banner::before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at 100% 0%,rgba(255,255,255,.55),transparent 55%)}
+    .banner .content{padding:14px 16px;display:flex;align-items:center;justify-content:space-between;gap:12px;position:relative;z-index:1}
+    .banner h4{font-size:14.5px;font-weight:600;color:var(--ink)}
+    .banner p{margin:3px 0 0;font-size:11px;font-weight:400;color:var(--ink-2)}
+    .banner-cta{display:inline-block;margin-top:9px;background:rgba(255,255,255,.55);color:var(--ink-2);border:1.5px solid rgba(255,255,255,.7);padding:7px 14px;border-radius:999px;font-size:11px;font-weight:500;cursor:pointer}
+    .hand{width:64px;height:64px;border-radius:16px;background:rgba(255,255,255,.55);border:1.5px solid rgba(255,255,255,.75);display:grid;place-items:center;box-shadow:var(--sh-sm);flex:0 0 auto}
+    .gap{height:12px}
+
+    /* ═══ SALES TRANSACTIONS ═══ */
+    .txn-card{margin:0 18px;background:var(--card);border:1px solid rgba(230,168,0,.15);border-radius:var(--r);box-shadow:var(--sh);overflow:hidden}
+    .txn-head{display:grid;grid-template-columns:68px 1fr 60px 48px;padding:8px 13px;background:var(--y-pale);border-bottom:1px solid rgba(230,168,0,.2)}
+    .txn-head span{font-size:9.5px;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.4px}
+    .txn-head span:last-child{text-align:right}
+    .txn-row{display:grid;grid-template-columns:68px 1fr 60px 48px;padding:10px 13px;border-bottom:1px solid rgba(230,168,0,.08);align-items:center;transition:background .12s}
+    .txn-row:last-of-type{border-bottom:none}
+    .txn-row:hover{background:var(--y-pale)}
+    .txn-date .d{font-size:11.5px;font-weight:500;color:var(--ink);display:block}
+    .txn-date .t{font-size:9.5px;font-weight:400;color:var(--muted);display:block}
+    .txn-offer .name{font-size:12px;font-weight:500;color:var(--ink);display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+    .txn-offer .vol{font-size:10px;font-weight:400;color:var(--muted);display:block}
+    .txn-recv{display:flex;flex-direction:column;gap:1px}
+    /* filter bar above transactions */
+    .txn-filters{
+      display:flex;gap:6px;padding:10px 13px 0;
+    }
+    .txnf-btn{
+      flex:1;padding:6px 0;text-align:center;
+      font-size:11px;font-weight:600;border-radius:999px;
+      border:1.5px solid rgba(201,139,0,.22);
+      background:var(--y-pale);color:var(--muted);
+      cursor:pointer;transition:all .18s;
+    }
+    .txnf-btn.sel{
+      background:var(--y1);color:var(--ink-2);
+      border-color:var(--y2);box-shadow:0 2px 8px rgba(160,111,0,.20);
+    }
+    /* divider under filter */
+    .txn-filter-sep{height:1px;background:rgba(230,168,0,.18);margin:8px 0 0;}
+    .recv-num{font-size:11.5px;font-weight:600;color:var(--ink)}
+    .txn-amt{text-align:right}
+    .txn-amt .amt{font-size:12.5px;font-weight:600;color:var(--ink);display:block}
+    .txn-amt .days{font-size:9.5px;font-weight:400;color:var(--muted);display:block}
+    .txn-more{display:block;width:100%;padding:10px;background:transparent;border:none;border-top:1px solid rgba(230,168,0,.15);font-size:11.5px;font-weight:500;color:var(--y3);cursor:pointer;text-align:center}
+
+    /* ═══ BOTTOM NAV ═══ */
+    .nav-wrap{position:sticky;bottom:0;z-index:50}
+    .nav-bar{
+      background:#fff;border-top:1px solid rgba(230,168,0,.20);
+      display:flex;justify-content:space-around;align-items:center;
+      padding:7px 8px calc(7px + env(safe-area-inset-bottom));
+      position:relative;
+    }
+    /* arch cutout behind FAB */
+    .nav-bar::before{
+      content:"";position:absolute;top:-1px;left:50%;transform:translateX(-50%);
+      width:72px;height:26px;background:#fff;border-radius:0 0 40px 40px;
+    }
+    .nbtn{
+      width:48px;height:48px;border-radius:13px;
+      display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;
+      color:rgba(160,111,0,.42);background:transparent;border:none;cursor:pointer;transition:color .18s;
+    }
+    .nbtn.active-nav{color:var(--y2)}
+    .nav-lbl{font-size:9px;font-weight:500;color:inherit;letter-spacing:.2px}
+    /* FAB — eDahab */
+    .fab-wrap{
+      display:flex;flex-direction:column;align-items:center;
+      margin-top:-32px;position:relative;z-index:10;
+    }
+    .fab-ring{
+      width:70px;height:70px;border-radius:50%;
+      background:#ffffff;
+      box-shadow:0 -2px 8px rgba(0,0,0,.12), 0 5px 18px rgba(0,0,0,.15);
+      display:flex;align-items:center;justify-content:center;
+      border:3px solid #ffffff;
+    }
+    .fab{
+      width:58px;height:58px;border-radius:50%;
+      background:#ffffff;
+      display:flex;align-items:center;justify-content:center;
+      border:none;cursor:pointer;padding:6px;
+      box-shadow:none;
+      transition:transform .15s;
+    }
+    .fab:active{transform:scale(.92)}
+    .fab img.fab-icon{
+      width:100%;height:100%;
+      object-fit:contain;
+      display:block;
+    }
+    .fab-lbl{font-size:9px;font-weight:700;color:#2E7D32;margin-top:3px;letter-spacing:.3px}
+
+    /* ═══ FLASH MODAL ═══ */
+    .modal-overlay{position:absolute;inset:0;z-index:100;background:rgba(100,70,0,.40);backdrop-filter:blur(5px);display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity .25s}
+    .modal-overlay.open{opacity:1;pointer-events:all}
+    .modal{width:310px;max-width:90vw;background:var(--card);border-radius:22px;overflow:hidden;box-shadow:0 24px 60px rgba(0,0,0,.30),0 0 0 1px rgba(230,168,0,.2);transform:translateY(18px) scale(.97);transition:transform .25s cubic-bezier(.34,1.56,.64,1),opacity .25s;opacity:0}
+    .modal-overlay.open .modal{transform:translateY(0) scale(1);opacity:1}
+    .modal-head{background:linear-gradient(130deg,var(--y1) 0%,var(--y2) 55%,var(--y3) 100%);padding:18px 18px 16px;position:relative;overflow:hidden;text-align:center}
+    .modal-head::before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at 50% 0%,rgba(255,255,255,.28),transparent 65%);pointer-events:none}
+    .modal-head::after{content:"";position:absolute;inset:0;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='46' height='40'%3E%3Cg fill='none' stroke='rgba(255,255,255,.09)' stroke-width='1'%3E%3Cpolygon points='23,2 44,12 44,32 23,40 2,32 2,12'/%3E%3C/g%3E%3C/svg%3E");background-size:46px 40px;pointer-events:none}
+    .modal-close{position:absolute;top:11px;right:13px;width:27px;height:27px;border-radius:999px;background:rgba(255,255,255,.28);border:none;cursor:pointer;z-index:2;display:grid;place-items:center;font-size:13px;color:rgba(35,22,0,.65)}
+    .modal-lightning{position:relative;z-index:2;width:50px;height:50px;border-radius:17px;background:rgba(255,255,255,.28);border:2px solid rgba(255,255,255,.52);display:grid;place-items:center;margin:0 auto 9px;box-shadow:0 4px 16px rgba(0,0,0,.10)}
+    .modal-tag{position:relative;z-index:2;display:inline-block;font-size:9.5px;font-weight:600;letter-spacing:.5px;text-transform:uppercase;color:rgba(35,22,0,.62);background:rgba(255,255,255,.32);border:1px solid rgba(255,255,255,.48);padding:3px 11px;border-radius:999px;margin-bottom:7px}
+    .modal-title{position:relative;z-index:2;font-size:17px;font-weight:700;color:rgba(25,16,0,.82);margin-bottom:3px}
+    .modal-sub{position:relative;z-index:2;font-size:11px;font-weight:400;color:rgba(50,35,0,.58)}
+    .modal-body{padding:16px 18px 18px}
+    .offer-items{display:flex;flex-direction:column;gap:8px;margin-bottom:14px}
+    .offer-item{display:flex;align-items:center;gap:11px;padding:10px 12px;background:var(--y-pale);border-radius:var(--r-sm);border:1px solid rgba(230,168,0,.18)}
+    .offer-item-icon{width:34px;height:34px;border-radius:11px;background:var(--y-soft);border:1px solid rgba(230,168,0,.28);display:grid;place-items:center;flex:0 0 auto}
+    .offer-item-text{flex:1;min-width:0}
+    .offer-item-name{font-size:12px;font-weight:500;color:var(--ink)}
+    .offer-item-note{font-size:10px;font-weight:400;color:var(--muted)}
+    .offer-item-val{font-size:12.5px;font-weight:600;color:var(--y3);white-space:nowrap}
+    .modal-price-row{display:flex;align-items:center;justify-content:space-between;padding:11px 12px;background:linear-gradient(125deg,var(--y-soft),var(--y-pale));border-radius:var(--r-sm);border:1px solid rgba(230,168,0,.28);margin-bottom:13px}
+    .modal-price-label{font-size:9.5px;font-weight:500;color:var(--muted);text-transform:uppercase;letter-spacing:.4px;margin-bottom:2px}
+    .modal-old-price{font-size:11.5px;font-weight:400;color:var(--muted);text-decoration:line-through}
+    .modal-new-price{font-size:27px;font-weight:700;color:var(--y3);line-height:1}
+    .modal-validity{display:flex;flex-direction:column;align-items:flex-end;gap:2px}
+    .modal-val-num{font-size:22px;font-weight:700;color:var(--ink);line-height:1}
+    .modal-val-lbl{font-size:9.5px;font-weight:400;color:var(--muted)}
+    .modal-timer{display:flex;align-items:center;justify-content:center;gap:7px;margin-bottom:13px}
+    .modal-timer-lbl{font-size:10px;font-weight:400;color:var(--muted)}
+    .modal-timer-digs{display:flex;align-items:center;gap:3px}
+    .tdig{min-width:28px;padding:3px 5px;border-radius:7px;background:var(--y-soft);border:1px solid rgba(230,168,0,.28);display:inline-grid;place-items:center;font-size:13px;font-weight:600;color:var(--y3)}
+    .tsep{font-size:13px;font-weight:600;color:var(--y2);line-height:1}
+    .modal-cta{width:100%;padding:13px;border-radius:999px;background:linear-gradient(125deg,var(--y1) 0%,var(--y2) 55%,var(--y3) 100%);border:none;cursor:pointer;font-size:13.5px;font-weight:600;color:var(--ink-2);box-shadow:0 5px 18px rgba(160,111,0,.38);letter-spacing:.2px}
+    .modal-terms{font-size:9.5px;font-weight:400;color:var(--muted);text-align:center;margin-top:9px}
+
+
+    /* ═══ SOMTEL LOGIN OVERLAY (from DahabPlus → Somtel) ═══ */
+    .somtel-overlay{
+      position:absolute;inset:0;z-index:300;
+      display:none;
+      align-items:center;
+      justify-content:center;
+      background:#ffffff;
+    }
+    .somtel-overlay.open{ display:flex; }
+
+    .somtel-shell{
+      width:390px;
+      max-width:100vw;
+      height:min(844px,100vh);
+      background:#fff;
+      border-radius:28px;
+      overflow:hidden;
+      position:relative;
+      box-shadow:0 24px 60px rgba(0,0,0,.30);
+      display:flex;
+      flex-direction:column;
+    }
+    @media(max-width:420px){
+      .somtel-shell{ border-radius:0; height:100vh; width:100vw; }
+    }
+
+    /* Gold header */
+    .somtel-login-header{
+      background:linear-gradient(165deg,#FFE566 0%,#FFD700 35%,#F0B800 65%,#C98B00 100%);
+      padding:52px 24px 40px;
+      display:flex;flex-direction:column;
+      align-items:center;
+      position:relative;
+    }
+    .somtel-login-header::after{
+      content:"";
+      position:absolute;
+      bottom:-22px;left:0;right:0;
+      height:46px;
+      background:#FFD700;
+      clip-path:ellipse(55% 100% at 50% 0%);
+    }
+    .somtel-back-btn{
+      position:absolute;top:16px;left:14px;
+      width:36px;height:36px;border-radius:50%;
+      background:rgba(0,0,0,.12);
+      border:none;cursor:pointer;
+      display:flex;align-items:center;justify-content:center;
+      color:rgba(80,50,0,.80);font-size:18px;
+    }
+    .somtel-logo-wrap{
+      width:76px;height:76px;border-radius:50%;
+      background:#fff;
+      display:flex;align-items:center;justify-content:center;
+      box-shadow:0 4px 18px rgba(0,0,0,.18);
+      margin-bottom:14px;
+      overflow:hidden;
+      border:2.5px solid rgba(255,255,255,.80);
+    }
+    .somtel-logo-wrap img{
+      width:64px;height:64px;object-fit:contain;
+    }
+    .somtel-brand-name{
+      color:rgba(60,35,0,.90);
+      font-size:24px;
+      font-weight:800;
+      letter-spacing:.4px;
+    }
+    .somtel-brand-tagline{
+      color:rgba(60,35,0,.60);
+      font-size:12px;
+      margin-top:4px;
+      font-weight:500;
+    }
+
+    /* Login body */
+    .somtel-login-body{
+      flex:1;
+      padding:52px 24px 28px;
+      display:flex;flex-direction:column;
+      gap:14px;
+      overflow-y:auto;
+      background:#fff;
+    }
+    .somtel-field-label{
+      font-size:11px;font-weight:600;
+      color:#444;margin-bottom:5px;
+      text-transform:uppercase;letter-spacing:.4px;
+    }
+    .somtel-input{
+      width:100%;height:48px;
+      border-radius:14px;
+      border:1.5px solid #e2e8f0;
+      background:#f8fafb;
+      padding:0 14px;
+      font-size:14px;font-weight:500;
+      outline:none;
+      box-sizing:border-box;
+      transition:border-color .2s;
+    }
+    .somtel-input:focus{ border-color:#FFD700; background:#fff; box-shadow:0 0 0 3px rgba(255,215,0,.15); }
+    .somtel-pw-wrap{ position:relative; }
+    .somtel-pw-toggle{
+      position:absolute;right:14px;top:50%;transform:translateY(-50%);
+      background:none;border:none;cursor:pointer;
+      color:#888;font-size:13px;padding:0;
+    }
+    .somtel-login-btn{
+      height:52px;border-radius:14px;border:none;
+      background:linear-gradient(125deg,#FFE566 0%,#FFD700 50%,#C98B00 100%);
+      color:rgba(60,35,0,.90);
+      font-size:15px;font-weight:700;
+      cursor:pointer;
+      box-shadow:0 4px 16px rgba(200,139,0,.40);
+      transition:opacity .15s,transform .1s;
+      margin-top:4px;
+      letter-spacing:.2px;
+    }
+    .somtel-login-btn:hover{ opacity:.92; }
+    .somtel-login-btn:active{ transform:scale(.98); }
+    .somtel-forgot{
+      text-align:center;font-size:13px;font-weight:500;
+      color:#C98B00;cursor:pointer;margin-top:2px;
+    }
+    .somtel-divider{
+      display:flex;align-items:center;gap:10px;margin:4px 0;
+    }
+    .somtel-divider::before,.somtel-divider::after{
+      content:"";flex:1;height:1px;background:rgba(200,139,0,.20);
+    }
+    .somtel-divider span{
+      font-size:11px;color:rgba(100,70,0,.45);font-weight:500;
+    }
+
+    /* ═══ eDahab OVERLAY ═══ */
+    .edahab-overlay{
+      position:absolute;inset:0;z-index:200;
+      display:none;
+      align-items:center;
+      justify-content:center;
+      /* fully opaque white — no dark Somtel bleed-through */
+      background:#ffffff;
+    }
+    .edahab-overlay.open{ display:flex; }
+
+    .edahab-shell{
+      width:390px;
+      max-width:100vw;
+      height:min(844px, 100vh);
+      background:#fff;
+      border-radius:28px;
+      overflow:hidden;
+      position:relative;
+      box-shadow:0 24px 60px rgba(0,0,0,.40);
+      display:flex;
+      flex-direction:column;
+    }
+    @media(max-width:420px){
+      .edahab-shell{ border-radius:0; height:100vh; width:100vw; }
+    }
+
+    /* Login screen */
+    .edahab-login{
+      display:flex;flex-direction:column;
+      height:100%;
+      background:#fff;
+    }
+    .edahab-login-header{
+      background:#3f8f4b;
+      padding:48px 24px 32px;
+      display:flex;flex-direction:column;
+      align-items:center;
+      position:relative;
+    }
+    .edahab-login-header::after{
+      content:"";
+      position:absolute;
+      bottom:-20px;left:0;right:0;
+      height:42px;
+      background:#3f8f4b;
+      clip-path:ellipse(55% 100% at 50% 0%);
+    }
+    .edahab-back-btn{
+      position:absolute;top:16px;left:14px;
+      width:36px;height:36px;border-radius:50%;
+      background:rgba(255,255,255,.22);
+      border:none;cursor:pointer;
+      display:flex;align-items:center;justify-content:center;
+      color:#fff;font-size:18px;
+    }
+    .edahab-logo-wrap{
+      width:72px;height:72px;border-radius:50%;
+      background:#fff;
+      display:flex;align-items:center;justify-content:center;
+      box-shadow:0 4px 18px rgba(0,0,0,.18);
+      margin-bottom:12px;
+      overflow:hidden;
+    }
+    .edahab-logo-wrap img{
+      width:64px;height:64px;object-fit:contain;
+    }
+    .edahab-brand{
+      color:#fff;
+      font-size:22px;
+      font-weight:700;
+      letter-spacing:.3px;
+    }
+    .edahab-tagline{
+      color:rgba(255,255,255,.80);
+      font-size:12px;
+      margin-top:4px;
+    }
+
+    .edahab-login-body{
+      flex:1;
+      padding:48px 24px 24px;
+      display:flex;flex-direction:column;
+      gap:14px;
+      overflow-y:auto;
+    }
+    .edahab-field-label{
+      font-size:11px;font-weight:600;
+      color:#444;margin-bottom:5px;
+      text-transform:uppercase;letter-spacing:.4px;
+    }
+    .edahab-input{
+      width:100%;height:48px;
+      border-radius:14px;
+      border:1.5px solid #e2e8f0;
+      background:#f8fafb;
+      padding:0 14px;
+      font-size:14px;font-weight:500;
+      outline:none;
+      transition:border-color .2s;
+    }
+    .edahab-input:focus{ border-color:#3f8f4b; background:#fff; }
+    .edahab-pw-wrap{ position:relative; }
+    .edahab-pw-toggle{
+      position:absolute;right:14px;top:50%;transform:translateY(-50%);
+      background:none;border:none;cursor:pointer;
+      color:#888;font-size:13px;padding:0;
+    }
+    .edahab-login-btn{
+      height:50px;border-radius:14px;border:none;
+      background:#3f8f4b;color:#fff;
+      font-size:15px;font-weight:700;
+      cursor:pointer;
+      box-shadow:0 4px 14px rgba(63,143,75,.35);
+      transition:opacity .15s,transform .1s;
+      margin-top:4px;
+    }
+    .edahab-login-btn:hover{ opacity:.92; }
+    .edahab-login-btn:active{ transform:scale(.98); }
+    .edahab-login-error{
+      color:#e53e3e;font-size:12px;font-weight:500;
+      text-align:center;display:none;
+      background:#fff5f5;border-radius:10px;padding:8px 12px;
+      border:1px solid #fed7d7;
+    }
+    .edahab-forgot{
+      text-align:center;font-size:13px;font-weight:500;
+      color:#3f8f4b;cursor:pointer;margin-top:2px;
+    }
+
+    /* DahabPlus iframe panel */
+    .edahab-app-panel{
+      display:none;
+      height:100%;
+      flex-direction:column;
+    }
+    .edahab-app-panel.visible{ display:flex; }
+    .edahab-app-bar{
+      background:#3f8f4b;
+      padding:12px 16px;
+      display:flex;align-items:center;justify-content:space-between;
+      flex-shrink:0;
+    }
+    .edahab-app-bar-title{
+      color:#fff;font-size:16px;font-weight:700;
+      letter-spacing:.2px;
+    }
+    .edahab-app-close{
+      width:34px;height:34px;border-radius:50%;
+      background:rgba(255,255,255,.22);
+      border:none;cursor:pointer;
+      color:#fff;font-size:16px;font-weight:700;
+      display:flex;align-items:center;justify-content:center;
+    }
+    .edahab-app-frame{
+      flex:1;border:none;width:100%;
+      background:#fff;
+    }
+
+
+    /* ═══ DahabPlus Inline Styles (scoped under #dahabInline) ═══ */
+    #dahabInline { width:100%; height:100%; overflow:hidden; position:relative; display:flex; flex-direction:column; }
+    
+    :root{
+      --brandGreen:#3f8f4b;
+      --bg:#ffffff;
+      --text:#101214;
+      --muted:#6b7280;
+
+      --shadow:0 10px 24px rgba(0,0,0,.14);
+      --shadow2:0 18px 40px rgba(0,0,0,.24);
+
+      /* Typography */
+      --fw-heavy:650;
+      --fw-bold:600;
+      --fw-med:500;
+
+      --fs-section:14px;
+      --fs-label:10px;
+      --fs-body:12px;
+      --fs-sub:11px;
+      --fs-money:15px;
+
+      --fs-more-title:15px;
+      --fs-more-item:12px;
+      --fs-tile:11px;
+
+      /* Circles */
+      --circleAction:46px;
+      --circleTile:44px;
+      --circlePromo:28px;
+      --circleFab:62px;
+      --circleTopIcon:36px;
+
+      --pinIconBg: var(--brandGreen);
+
+      /* Desktop phone frame size */
+      --phoneW:390px;
+      --phoneH:844px;
+    }
+
+    *{box-sizing:border-box}
+    html, body{ height:100%; }
+
+    html{
+      overflow-x:hidden;
+      max-width:100%;
+    }
+    html, body{
+      margin:0;padding:0;
+      width:100%;height:100%;
+      overflow:hidden;
+    }
+    body{
+      font-family: Arial, sans-serif;
+      background:#fff;
+      color:var(--text);
+      font-size:var(--fs-body);
+      font-weight:var(--fw-med);
+      display:flex;
+      align-items:stretch;
+      justify-content:center;
+    }
+
+    #dahabInline .phone{
+      width:100%;
+      height:100%;
+      background:#fff;
+      overflow:hidden;
+      position:relative;
+      display:flex;
+      flex-direction:column;
+    }
+
+
+
+    #dahabInline .app{
+      flex:1 1 auto;
+      width:100%;
+      min-height:0;
+      overflow-x:hidden;
+      overflow-y:auto;
+      background:linear-gradient(180deg, #5e955d 0 120px, #ffffff 120px 100%);
+      padding-bottom:0;
+      position:relative;
+      scrollbar-width:none;
+      -ms-overflow-style:none;
+    }
+    #dahabInline .app::-webkit-scrollbar{display:none;width:0;height:0;}
+
+    /* Header */
+    #dahabInline .header{
+      background:#fff;
+      padding:12px 12px 14px;
+      position:sticky;
+      top:0;
+      z-index:10;
+    }
+    #dahabInline .topbar{ display:flex; align-items:center; justify-content:space-between; gap:10px; }
+    #dahabInline .topLeft, #dahabInline .topRight{ display:flex; align-items:center; gap:10px; flex:0 0 auto; }
+    #dahabInline .topIcon{
+      width:var(--circleTopIcon);
+      height:var(--circleTopIcon);
+      border-radius:14px;
+      background:rgba(63,143,75,.12);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      cursor:pointer;
+      flex:0 0 auto;
+    }
+    #dahabInline .brandCenter{ display:flex; align-items:center; justify-content:center; flex:1; min-width:0; }
+    #dahabInline .brandText{
+      color:var(--brandGreen);
+      font-weight:var(--fw-heavy);
+      font-size:18px;
+      letter-spacing:.2px;
+      line-height:1;
+      user-select:none;
+    }
+
+    /* Carousel */
+    #dahabInline .carouselArea{ padding:10px 12px 0; background:#fff; }
+    #dahabInline .carouselWrap{
+      display:flex;
+      gap:10px;
+      overflow-x:auto;
+      overflow-y:hidden;
+      scrollbar-width:none;
+      -ms-overflow-style:none;
+      padding-bottom:6px;
+      scroll-snap-type:x mandatory;
+    }
+    #dahabInline .carouselWrap::-webkit-scrollbar{display:none;width:0;height:0;}
+
+    #dahabInline .walletCard{
+      min-width: calc(100% - 0px);
+      height:148px;
+      border-radius:18px;
+      background:var(--brandGreen);
+      color:#fff;
+      padding:14px;
+      box-shadow: 0 10px 22px rgba(0,0,0,.12);
+      position:relative;
+      scroll-snap-align:start;
+      overflow:hidden;
+    }
+    #dahabInline .walletCard::after{
+      content:"";
+      position:absolute;
+      inset:-46px -66px auto auto;
+      width:240px;height:240px;
+      border-radius:50%;
+      background:rgba(255,255,255,.10);
+    }
+    #dahabInline .walletTop{
+      display:flex;
+      align-items:flex-start;
+      justify-content:space-between;
+      position:relative;
+      z-index:1;
+      gap:10px;
+    }
+    #dahabInline .walletName{ font-weight:var(--fw-heavy); font-size:14px; opacity:.95; }
+    #dahabInline .walletBrand{ font-weight:var(--fw-heavy); font-size:20px; opacity:.95; white-space:nowrap; }
+    #dahabInline .walletMid{ margin-top:18px; position:relative; z-index:1; }
+    #dahabInline .walletLabel{ font-size:12px; opacity:.9; font-weight:var(--fw-bold); }
+    #dahabInline .walletBtn{
+      position:absolute;
+      right:14px;
+      bottom:14px;
+      background:rgba(0,0,0,.18);
+      border:1px solid rgba(255,255,255,.24);
+      color:#fff;
+      border-radius:14px;
+      padding:10px 12px;
+      font-weight:var(--fw-heavy);
+      cursor:pointer;
+      z-index:1;
+      font-size:12px;
+    }
+
+    /* Action row */
+    #dahabInline .actions{
+      padding:10px 12px 6px;
+      display:flex;
+      justify-content:space-between;
+      gap:6px;
+      align-items:flex-start;
+    }
+    #dahabInline .action{
+      width:64px;
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      cursor:pointer;
+      user-select:none;
+    }
+    #dahabInline .circle{
+      width:var(--circleAction);
+      height:var(--circleAction);
+      border-radius:50%;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      color:#fff;
+    }
+    #dahabInline .label{
+      margin-top:6px;
+      font-size:var(--fs-label);
+      font-weight:var(--fw-bold);
+      color:#111;
+      text-transform:uppercase;
+      text-align:center;
+    }
+    #dahabInline .cMerchant{background:#29c6ad}
+    #dahabInline .cSubscriber{background:#ff5a5f}
+    #dahabInline .cTransfer{background:#f6c343}
+    #dahabInline .cRemit{background:#6c63ff}
+    #dahabInline .cMore{background:#111}
+
+    /* MORE popup */
+    #dahabInline .moreWrap{position:relative}
+    #dahabInline .morePopup{
+      position:absolute;
+      right:0;
+      top:82px;
+      width:320px;
+      max-width:92vw;
+      background:#fff;
+      border-radius:16px;
+      box-shadow:0 12px 30px rgba(0,0,0,.22);
+      padding:14px;
+      display:none;
+      z-index:80;
+    }
+    #dahabInline .morePopup.open{display:block}
+    #dahabInline .morePopup h3{
+      margin:0 0 10px;
+      font-size:var(--fs-more-title);
+      font-weight:var(--fw-heavy);
+      color:#000;
+    }
+    #dahabInline .groupBtn{
+      width:100%;
+      padding:10px 10px;
+      border-radius:14px;
+      border:1px solid #eee;
+      background:#fafafa;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      cursor:pointer;
+      margin-top:10px;
+      font-weight:var(--fw-heavy);
+      color:#111;
+      font-size:var(--fs-more-item);
+    }
+    #dahabInline .groupBtn:hover{background:#f3f4f6}
+    #dahabInline .groupLeft{display:flex;align-items:center;gap:10px}
+    #dahabInline .pill{
+      width:26px;height:26px;border-radius:10px;
+      display:flex;align-items:center;justify-content:center;
+      color:#fff;font-weight:var(--fw-heavy);font-size:12px;
+    }
+    #dahabInline .p1{background:#1fa463}
+    #dahabInline .p2{background:#1f6feb}
+    #dahabInline .p3{background:#6c63ff}
+    #dahabInline .arrow{color:#666;font-size:13px}
+
+    /* Section headings */
+    #dahabInline .sectionHead{
+      padding:14px 12px 10px;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+    }
+    #dahabInline .sectionTitle{
+      font-weight:var(--fw-heavy);
+      font-size:var(--fs-section);
+      letter-spacing:.2px;
+    }
+    #dahabInline .seeAll{
+      font-size:13px;
+      font-weight:var(--fw-heavy);
+      color:var(--brandGreen);
+      cursor:pointer;
+    }
+
+    /* Transactions */
+    #dahabInline .txRow{ padding:0 12px; }
+    #dahabInline .txItem{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:10px;
+      padding:14px;
+      border-radius:18px;
+      background:#f3f4f6;
+    }
+    #dahabInline .txLeft{ display:flex; align-items:center; gap:10px; min-width:0; }
+    #dahabInline .txIcon{
+      width:48px;height:48px;
+      border-radius:18px;
+      background:#ff7b7b;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      flex:0 0 auto;
+    }
+    #dahabInline .txName{
+      font-weight:var(--fw-heavy);
+      font-size:13px;
+      white-space:nowrap;
+      overflow:hidden;
+      text-overflow:ellipsis;
+    }
+    #dahabInline .txMeta{ margin-top:4px; font-size:var(--fs-sub); color:var(--muted); font-weight:var(--fw-med); }
+    #dahabInline .txRight{ text-align:right; flex:0 0 auto; }
+    #dahabInline .txAmt{ font-weight:var(--fw-heavy); font-size:var(--fs-money); }
+    #dahabInline .txDate{ margin-top:4px; font-size:var(--fs-sub); color:var(--muted); font-weight:var(--fw-med); }
+
+    /* DahabCards strip */
+    #dahabInline .promoStrip{ padding:14px 12px 0; }
+    #dahabInline .promoCard{
+      background:#2f2f2f;
+      border-radius:22px;
+      padding:14px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      color:#fff;
+      box-shadow:0 10px 22px rgba(0,0,0,.16);
+    }
+    #dahabInline .promoLeft{ display:flex; align-items:center; gap:10px; min-width:0; }
+    #dahabInline .mcDot{
+      width:40px;height:24px;border-radius:10px;
+      background:linear-gradient(90deg,#ff4d4d 0 50%, #ffb020 50% 100%);
+      flex:0 0 auto;
+    }
+    #dahabInline .pTitle{ font-weight:var(--fw-heavy); font-size:16px; }
+    #dahabInline .pSub{
+      margin-top:5px;
+      color:#cfd3d8;
+      font-size:12px;
+      font-weight:var(--fw-med);
+      white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+      max-width:60vw;
+    }
+    #dahabInline .promoGo{
+      width:var(--circlePromo);height:var(--circlePromo);border-radius:50%;
+      background:#fff;
+      display:flex;align-items:center;justify-content:center;
+      cursor:pointer;
+      flex:0 0 auto;
+    }
+
+    /* Services grid */
+    #dahabInline .services{ padding:0 12px 10px; }
+    #dahabInline .servicesGrid{
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      gap:14px 10px;
+      padding-top:12px;
+    }
+    #dahabInline .svc{text-align:center;cursor:pointer;user-select:none;}
+    #dahabInline .svcIcon{
+      width:50px;height:50px;border-radius:18px;
+      background:#e8f3ec;
+      display:flex;align-items:center;justify-content:center;
+      margin:0 auto;
+      color:var(--brandGreen);
+      font-size:20px;
+    }
+    #dahabInline .svcName{
+      margin-top:8px;
+      font-size:12px;
+      font-weight:var(--fw-heavy);
+      color:#111;
+    }
+
+    /* Floating + */
+    #dahabInline .fab{
+      position:absolute;
+      right:16px;
+      bottom:16px;
+      width:var(--circleFab);
+      height:var(--circleFab);
+      border-radius:50%;
+      background:var(--brandGreen);
+      box-shadow:0 14px 30px rgba(0,0,0,.22);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      cursor:pointer;
+      z-index:50;
+    }
+
+    /* Modal */
+    #dahabInline .overlay{
+      position:absolute; inset:0;
+      background:rgba(0,0,0,.35);
+      display:none;
+      justify-content:center;
+      align-items:center;
+      padding:18px;
+      z-index:999;
+    }
+    #dahabInline .overlay.open{display:flex}
+    #dahabInline .modal{
+      width:min(520px, 94vw);
+      background:#fff;
+      border-radius:18px;
+      box-shadow:var(--shadow2);
+      padding:14px 14px 16px;
+      max-height:80vh;
+      overflow:auto;
+    }
+    #dahabInline .modalTop{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:10px;
+      margin-bottom:10px;
+      position:sticky;
+      top:0;
+      background:#fff;
+      padding-bottom:8px;
+      z-index:2;
+    }
+    #dahabInline .modalTitle{
+      font-size:var(--fs-more-title);
+      font-weight:var(--fw-heavy);
+      color:#111;
+    }
+    #dahabInline .closeX{
+      width:36px;height:36px;border-radius:14px;
+      border:1px solid #eee;
+      background:#fff;
+      cursor:pointer;
+      font-weight:var(--fw-heavy);
+      font-size:14px;
+    }
+
+    #dahabInline .grid{
+      display:grid;
+      grid-template-columns:repeat(4, 1fr);
+      gap:14px 10px;
+      padding-top:6px;
+    }
+    #dahabInline .tile{ text-align:center; cursor:pointer; user-select:none; }
+    #dahabInline .tileCircle{
+      width:var(--circleTile);height:var(--circleTile);border-radius:50%;
+      margin:0 auto;
+      display:flex;align-items:center;justify-content:center;
+    }
+    #dahabInline .tileName{
+      margin-top:8px;
+      font-size:var(--fs-tile);
+      font-weight:var(--fw-bold);
+      color:#333;
+      line-height:1.1;
+    }
+
+    /* PIN menu */
+    #dahabInline .pinMenu{ display:flex; flex-direction:column; gap:10px; padding-top:6px; }
+    #dahabInline .pinItem{
+      width:100%;
+      padding:10px 12px;
+      border-radius:14px;
+      border:1px solid #eee;
+      background:#fafafa;
+      display:flex;
+      align-items:center;
+      gap:12px;
+      cursor:pointer;
+      font-weight:var(--fw-bold);
+      color:#111;
+      font-size:13px;
+    }
+    #dahabInline .pinItem:hover{background:#f3f4f6}
+    #dahabInline .pinLeftIcon{
+      width:38px;height:38px;border-radius:12px;
+      background:var(--pinIconBg);
+      display:flex;align-items:center;justify-content:center;
+      flex:0 0 auto;
+    }
+    #dahabInline .pinLeftIcon svg{width:20px;height:20px; display:block}
+
+    /* Forms */
+    #dahabInline .form{ display:flex; flex-direction:column; gap:12px; padding-top:6px; }
+    #dahabInline .fieldLabel{ font-size:12px; font-weight:var(--fw-bold); color:#111; margin-bottom:6px; }
+    #dahabInline .select, #dahabInline .textInput{
+      width:100%;
+      height:44px;
+      border-radius:14px;
+      border:1px solid #eee;
+      background:#fafafa;
+      padding:0 12px;
+      font-weight:var(--fw-bold);
+      font-size:13px;
+      outline:none;
+    }
+    #dahabInline .btnPrimary{
+      height:46px;
+      border-radius:14px;
+      border:none;
+      background:var(--brandGreen);
+      color:#fff;
+      font-weight:var(--fw-heavy);
+      font-size:14px;
+      cursor:pointer;
+    }
+    #dahabInline .hint{
+      border:1px solid #eee;
+      background:#fafafa;
+      border-radius:14px;
+      padding:12px;
+      font-weight:var(--fw-med);
+      font-size:13px;
+      color:#111;
+      line-height:1.35;
+      display:none;
+    }
+
+    /* PIN boxes */
+    #dahabInline .pinBoxes{ display:flex; gap:10px; }
+    #dahabInline .pinBox{
+      width:44px; height:44px;
+      border-radius:14px;
+      border:1px solid #eee;
+      background:#fafafa;
+      text-align:center;
+      font-weight:var(--fw-heavy);
+      font-size:16px;
+      outline:none;
+    }
+
+    /* Confirmation tick */
+    #dahabInline .confirmRow{ display:flex; align-items:flex-start; gap:12px; }
+    #dahabInline .tickIcon{ width:34px; height:34px; flex:0 0 auto; }
+
+    /* Freeze results */
+    #dahabInline .freezeList{ display:flex; flex-direction:column; gap:10px; padding-top:6px; }
+    #dahabInline .freezeTx{
+      width:100%;
+      padding:10px 12px;
+      border-radius:14px;
+      border:1px solid #eee;
+      background:#fafafa;
+      display:flex;
+      align-items:flex-start;
+      justify-content:space-between;
+      gap:10px;
+      cursor:pointer;
+      user-select:none;
+    }
+    #dahabInline .freezeTx:hover{background:#f3f4f6}
+    #dahabInline .freezeTxLeft{min-width:0;}
+    #dahabInline .freezeTxTop{ font-weight:var(--fw-heavy); font-size:13px; color:#111; margin-bottom:4px; }
+    #dahabInline .freezeTxMeta{
+      font-size:11px;
+      color:var(--muted);
+      font-weight:var(--fw-med);
+      line-height:1.25;
+      white-space:nowrap;
+      overflow:hidden;
+      text-overflow:ellipsis;
+      max-width:320px;
+    }
+    #dahabInline .freezeRadio{
+      margin-top:2px;
+      width:18px;
+      height:18px;
+      accent-color: var(--brandGreen);
+      flex:0 0 auto;
+    }
+
+    /* Icon strokes */
+    #dahabInline svg{width:22px;height:22px; display:block}
+    #dahabInline .w{stroke:#fff; fill:none; stroke-width:2; stroke-linecap:round; stroke-linejoin:round;}
+    #dahabInline .wfill{fill:#fff; stroke:none;}
+    #dahabInline .g{stroke:var(--brandGreen); fill:none; stroke-width:2; stroke-linecap:round; stroke-linejoin:round;}
+
+    /* ═══ BOTTOM NAV (Somtel-style) — clean rebuild ═══ */
+
+    /* Wrapper: flex child pinned at bottom — no sticky needed */
+    #dahabInline .dp-nav-wrap{
+      flex:0 0 auto;
+      position:relative;
+      z-index:999;
+      background:#ffffff;
+      box-shadow:0 -1px 0 rgba(63,143,75,.15);
+    }
+
+    /* Nav row: flex, fixed height, white, no overflow */
+    #dahabInline .dp-nav-bar{
+      background:#ffffff;
+      display:flex;
+      justify-content:space-around;
+      align-items:center;
+      height:60px;
+      padding:0 6px;
+      position:relative;
+      overflow:visible;
+    }
+
+    /* White arch bridge behind the raised FAB */
+    #dahabInline .dp-nav-bar::before{
+      content:"";
+      position:absolute;
+      top:-2px;left:50%;
+      transform:translateX(-50%);
+      width:80px;height:32px;
+      background:#ffffff;
+      border-radius:0 0 50px 50px;
+      z-index:0;
+    }
+
+    /* Regular nav buttons */
+    #dahabInline .dp-nbtn{
+      display:flex;flex-direction:column;
+      align-items:center;justify-content:center;
+      gap:3px;
+      width:50px;
+      background:transparent;border:none;cursor:pointer;
+      color:rgba(63,143,75,.40);
+      transition:color .15s;
+      position:relative;z-index:1;
+      flex-shrink:0;
+    }
+    #dahabInline .dp-nbtn.dp-active{ color:#3f8f4b; }
+    #dahabInline .dp-nbtn svg{ width:21px;height:21px;display:block; }
+    #dahabInline .dp-nav-lbl{
+      font-size:8.5px;font-weight:600;
+      color:inherit;letter-spacing:.2px;
+      line-height:1;
+    }
+
+    /* Center FAB wrapper — raised above the bar */
+    #dahabInline .dp-fab-wrap{
+      display:flex;flex-direction:column;
+      align-items:center;
+      margin-top:-30px;
+      position:relative;z-index:30;
+      flex-shrink:0;
+      pointer-events:auto;
+    }
+
+    /* Outer white ring with subtle shadow */
+    #dahabInline .dp-fab-ring{
+      width:66px;height:66px;border-radius:50%;
+      background:#ffffff;
+      box-shadow:0 -4px 12px rgba(0,0,0,.10), 0 4px 12px rgba(0,0,0,.10);
+      display:flex;align-items:center;justify-content:center;
+      pointer-events:auto;
+    }
+
+    /* Inner button — white bg, yellow border */
+    #dahabInline .dp-fab{
+      width:54px;height:54px;border-radius:50%;
+      background:#ffffff;
+      border:2.5px solid #FFD700;
+      display:flex;align-items:center;justify-content:center;
+      cursor:pointer;padding:7px;
+      box-shadow:0 0 0 1px rgba(255,215,0,.25);
+      transition:transform .15s;
+      position:relative;
+      z-index:31;
+      pointer-events:auto;
+    }
+    #dahabInline .dp-fab:active{ transform:scale(.91); }
+    #dahabInline .dp-fab img{ width:100%;height:100%;object-fit:contain;display:block; }
+
+    /* "Somtel" label — gold yellow */
+    #dahabInline .dp-fab-lbl{
+      font-size:9px;font-weight:700;
+      color:#FFD700;
+      margin-top:4px;letter-spacing:.3px;
+      white-space:nowrap;
+      text-shadow:0 1px 2px rgba(0,0,0,.15);
+    }
+
+    /* Give app enough bottom padding to clear the nav */
+    /* app padding handled by flex layout */
+
+  
+</style>
+</head>
+<body>
+<div class="phone">
+
+  <!-- HEADER – all-gold, no black -->
+  <div class="header">
+
+    <!-- Status bar -->
+    <div class="h-status">
+      <span class="h-time">09:41</span>
+      <div class="h-sr">
+        <div class="s-bars">
+          <div class="sb on"></div><div class="sb on"></div>
+          <div class="sb on"></div><div class="sb"></div>
+        </div>
+        <span class="h-net">4G</span>
+        <div class="h-bat"><div class="h-bat-fill"></div></div>
+      </div>
+    </div>
+
+    <!-- Brand row -->
+    <div class="h-brand-row">
+      <div class="h-logo-wrap">
+        <div class="logo-badge">
+          <img src="data:image/png;base64,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" alt="Somtel"/>
+        </div>
+        <div class="h-brand-text">
+          <div class="h-brand-name">SOM<em>TEL</em></div>
+          <div class="h-brand-tag">Stay connected · Always</div>
+        </div>
+      </div>
+      <div class="h-actions">
+        <div style="position:relative">
+          <button class="hbtn" title="Notifications">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/>
+              <path d="M13.73 21a2 2 0 0 1-3.46 0"/>
+            </svg>
+          </button>
+          <span class="h-badge"></span>
+        </div>
+        <button class="hbtn" title="Logout">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/>
+            <polyline points="16 17 21 12 16 7"/>
+            <line x1="21" y1="12" x2="9" y2="12"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Phone number -->
+    <div class="h-number-row">
+      <div class="h-number-label">My Number</div>
+      <div class="h-number-val"><b>65xxxxxxx</b></div>
+    </div>
+
+    <!-- 4 info items — simple horizontal row -->
+    <div class="h-info-row">
+
+      <div class="h-info-item">
+        <div class="hii-icon">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="rgba(80,50,0,.75)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2" y="5" width="20" height="14" rx="2"/>
+            <line x1="2" y1="10" x2="22" y2="10"/>
+          </svg>
+        </div>
+        <div class="hii-lbl">Account</div>
+        <div class="hii-val">Prepaid</div>
+      </div>
+
+      <div class="h-info-item">
+        <div class="hii-icon">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="rgba(80,50,0,.75)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="20 6 9 17 4 12"/>
+          </svg>
+        </div>
+        <div class="hii-lbl">Status</div>
+        <div class="hii-val"><span class="hii-dot on"></span>Active</div>
+      </div>
+
+      <div class="h-info-item">
+        <div class="hii-icon">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="rgba(80,50,0,.75)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"/>
+            <line x1="2" y1="12" x2="22" y2="12"/>
+            <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10A15.3 15.3 0 0 1 12 2z"/>
+          </svg>
+        </div>
+        <div class="hii-lbl">Roaming</div>
+        <div class="hii-val"><span class="hii-dot off"></span>Off</div>
+      </div>
+
+      <div class="h-info-item">
+        <div class="hii-icon">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="rgba(80,50,0,.75)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M5 12.55a11 11 0 0 1 14.08 0"/>
+            <path d="M1.42 9a16 16 0 0 1 21.16 0"/>
+            <path d="M8.53 16.11a6 6 0 0 1 6.95 0"/>
+            <circle cx="12" cy="20" r="1" fill="rgba(80,50,0,.75)"/>
+          </svg>
+        </div>
+        <div class="hii-lbl">Network</div>
+        <div class="hii-val">4G LTE</div>
+      </div>
+
+    </div><!-- /.h-info-row -->
+
+    <div class="h-wave-pad"></div>
+    <div class="h-wave"></div>
+
+  </div>
+
+  <!-- BODY (Active Plans are the first item inside the scrollable body) -->
+  <div class="body">
+
+    <!-- Active Plans – first section in scrollable body, visually just below header -->
+    <div class="sec-head" style="padding-top:18px">
+      <h3>Active Plans</h3>
+      <a class="see-all" href="#">See all</a>
+    </div>
+    <div class="ap-scroll">
+      <div class="apc">
+        <div class="ap-top">
+          <div><div class="ap-name">Uncapped Monthly</div><div class="ap-type">Mobile Data · $5.00 / mo</div></div>
+          <span class="chip active">Active</span>
+        </div>
+        <div class="ap-prog">
+          <div class="ap-prog-row"><span class="used">14 GB used</span><span>of 19 GB</span></div>
+          <div class="ptrack"><div class="pfill" style="width:74%"></div></div>
+        </div>
+        <div class="ap-exp">Expires <em>03 Dec 2026</em> · 7 days left</div>
+        <div class="ap-actions">
+          <button class="ap-btn prim">Renew</button>
+        </div>
+      </div>
+      <div class="apc expiring">
+        <div class="ap-top">
+          <div><div class="ap-name">Daily Unlimited</div><div class="ap-type">Voice + Data · $0.50 / day</div></div>
+          <span class="chip expiring">Expiring soon</span>
+        </div>
+        <div class="ap-prog">
+          <div class="ap-prog-row"><span class="used">20 hrs used</span><span>of 24 hrs</span></div>
+          <div class="ptrack"><div class="pfill warn" style="width:83%"></div></div>
+        </div>
+        <div class="ap-exp">Expires <em>Today at 11:59 PM</em></div>
+        <div class="ap-actions">
+          <button class="ap-btn prim">Renew</button>
+        </div>
+      </div>
+      <div class="apc autorn">
+        <div class="ap-top">
+          <div><div class="ap-name">5 GB Weekly</div><div class="ap-type">Mobile Data · $1.00 / week</div></div>
+          <span class="chip auto">Auto-renew</span>
+        </div>
+        <div class="ap-prog">
+          <div class="ap-prog-row"><span class="used">1.2 GB used</span><span>of 5 GB</span></div>
+          <div class="ptrack"><div class="pfill" style="width:24%"></div></div>
+        </div>
+        <div class="ap-exp">Renews <em>10 Dec 2026</em> automatically</div>
+        <div class="ap-actions">
+          <button class="ap-btn prim">Renew</button>
+        </div>
+      </div>
+    </div>
+    <div class="c-dots"><div class="cd on"></div><div class="cd"></div><div class="cd"></div></div>
+
+    <div class="gap"></div>
+
+    <!-- Data Usage – multi-plan switcher -->
+    <div class="sec-head">
+      <h3>Data Usage</h3>
+      <span style="font-size:10.5px;font-weight:600;color:var(--y3);background:var(--y-soft);border:1px solid rgba(201,139,0,.25);padding:3px 10px;border-radius:999px;">3 plans</span>
+    </div>
+    <div class="usage-card">
+
+      <!-- Plan selector pills -->
+      <div class="plan-switcher" id="planSwitcher">
+        <div class="psw-tab sel" data-plan="0"><span class="psw-dot"></span>Uncapped Monthly</div>
+        <div class="psw-tab"     data-plan="1"><span class="psw-dot"></span>Daily Unlimited</div>
+        <div class="psw-tab"     data-plan="2"><span class="psw-dot"></span>5 GB Weekly</div>
+      </div>
+
+      <!-- ── Panel 0: Uncapped Monthly ── -->
+      <div class="usage-panel active" id="panel-0">
+        <div class="usage-hd">
+          <div class="usage-hd-left">
+            <div class="title">This Week</div>
+            <div class="sub">Nov 27 – Dec 3, 2026</div>
+          </div>
+          <div class="usage-trend">↑ 12% vs last week</div>
+        </div>
+        <div class="ftabs">
+          <div class="ftab">Today</div><div class="ftab sel">7D</div><div class="ftab">30D</div>
+        </div>
+        <div class="chart-wrap">
+          <svg class="chart-svg" viewBox="0 0 340 76" preserveAspectRatio="none">
+            <defs><linearGradient id="cg0" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#FFD700" stop-opacity=".45"/>
+              <stop offset="100%" stop-color="#FFD700" stop-opacity="0"/>
+            </linearGradient></defs>
+            <line class="chart-grid-line" x1="0" y1="19" x2="340" y2="19"/>
+            <line class="chart-grid-line" x1="0" y1="38" x2="340" y2="38"/>
+            <line class="chart-grid-line" x1="0" y1="57" x2="340" y2="57"/>
+            <path class="chart-area" style="fill:url(#cg0)" d="M0,53 L49,40 L97,26 L146,48 L194,16 L243,33 L291,46 L340,28 L340,76 L0,76 Z"/>
+            <path class="chart-line" d="M0,53 L49,40 L97,26 L146,48 L194,16 L243,33 L291,46 L340,28"/>
+            <circle class="c-dot" cx="0" cy="53" r="3.5"/><circle class="c-dot" cx="49" cy="40" r="3.5"/>
+            <circle class="c-dot" cx="97" cy="26" r="3.5"/><circle class="c-dot" cx="146" cy="48" r="3.5"/>
+            <circle class="c-dot peak" cx="194" cy="16" r="4.5"/>
+            <circle class="c-dot" cx="243" cy="33" r="3.5"/><circle class="c-dot" cx="291" cy="46" r="3.5"/>
+            <circle class="c-dot" cx="340" cy="28" r="3.5"/>
+          </svg>
+        </div>
+        <div class="day-labels"><span>Thu</span><span>Fri</span><span>Sat</span><span>Sun</span><span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span></div>
+        <div class="usage-stats">
+          <div class="ustat"><div class="ustat-lbl">Remaining</div><div class="ustat-val g">5.0 GB</div><div class="ustat-note">of 19 GB plan</div></div>
+          <div class="ustat"><div class="ustat-lbl">Used</div><div class="ustat-val gd">14.0 GB</div><div class="ustat-note">this period</div></div>
+          <div class="ustat"><div class="ustat-lbl">Today</div><div class="ustat-val a">1.4 GB</div><div class="ustat-note">since midnight</div></div>
+        </div>
+        <div class="reset-row">
+          <svg width="11" height="11" viewBox="0 0 24 24" fill="none"><path d="M1 4v6h6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M3.51 15a9 9 0 1 0 .49-5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+          Resets on <mark>03 Dec 2026</mark>
+        </div>
+      </div>
+
+      <!-- ── Panel 1: Daily Unlimited ── -->
+      <div class="usage-panel" id="panel-1">
+        <div class="usage-hd">
+          <div class="usage-hd-left">
+            <div class="title">Today</div>
+            <div class="sub">03 Dec 2026 · Expires 11:59 PM</div>
+          </div>
+          <div class="usage-trend" style="background:var(--amber-lt);color:var(--amber)">⚠ Expiring soon</div>
+        </div>
+        <div class="ftabs">
+          <div class="ftab sel">Today</div><div class="ftab">7D</div><div class="ftab">30D</div>
+        </div>
+        <div class="chart-wrap">
+          <svg class="chart-svg" viewBox="0 0 340 76" preserveAspectRatio="none">
+            <defs><linearGradient id="cg1" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#D07000" stop-opacity=".35"/>
+              <stop offset="100%" stop-color="#D07000" stop-opacity="0"/>
+            </linearGradient></defs>
+            <line class="chart-grid-line" x1="0" y1="19" x2="340" y2="19"/>
+            <line class="chart-grid-line" x1="0" y1="38" x2="340" y2="38"/>
+            <line class="chart-grid-line" x1="0" y1="57" x2="340" y2="57"/>
+            <path style="fill:url(#cg1);opacity:.35" d="M0,60 L57,44 L113,30 L170,38 L227,22 L283,35 L340,18 L340,76 L0,76 Z"/>
+            <path style="fill:none;stroke:var(--amber);stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round" d="M0,60 L57,44 L113,30 L170,38 L227,22 L283,35 L340,18"/>
+            <circle style="fill:#fff;stroke:var(--amber);stroke-width:2" cx="0"   cy="60" r="3.5"/>
+            <circle style="fill:#fff;stroke:var(--amber);stroke-width:2" cx="57"  cy="44" r="3.5"/>
+            <circle style="fill:#fff;stroke:var(--amber);stroke-width:2" cx="113" cy="30" r="3.5"/>
+            <circle style="fill:#fff;stroke:var(--amber);stroke-width:2" cx="170" cy="38" r="3.5"/>
+            <circle style="fill:var(--amber);stroke:var(--amber);stroke-width:2" cx="227" cy="22" r="4.5"/>
+            <circle style="fill:#fff;stroke:var(--amber);stroke-width:2" cx="283" cy="35" r="3.5"/>
+            <circle style="fill:#fff;stroke:var(--amber);stroke-width:2" cx="340" cy="18" r="3.5"/>
+          </svg>
+        </div>
+        <div class="day-labels"><span>00:00</span><span>04:00</span><span>08:00</span><span>12:00</span><span>16:00</span><span>20:00</span><span>Now</span></div>
+        <div class="usage-stats">
+          <div class="ustat"><div class="ustat-lbl">Remaining</div><div class="ustat-val" style="color:var(--amber)">4 hrs</div><div class="ustat-note">of 24 hr plan</div></div>
+          <div class="ustat"><div class="ustat-lbl">Used</div><div class="ustat-val gd">20 hrs</div><div class="ustat-note">this period</div></div>
+          <div class="ustat"><div class="ustat-lbl">Today</div><div class="ustat-val a">0.8 GB</div><div class="ustat-note">voice + data</div></div>
+        </div>
+        <div class="reset-row" style="color:var(--amber)">
+          <svg width="11" height="11" viewBox="0 0 24 24" fill="none"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z" stroke="currentColor" stroke-width="2"/><line x1="12" y1="9" x2="12" y2="13" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><line x1="12" y1="17" x2="12.01" y2="17" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+          Expires <mark style="background:var(--amber-lt);color:var(--amber)">Today at 11:59 PM</mark>
+        </div>
+      </div>
+
+      <!-- ── Panel 2: 5 GB Weekly ── -->
+      <div class="usage-panel" id="panel-2">
+        <div class="usage-hd">
+          <div class="usage-hd-left">
+            <div class="title">This Week</div>
+            <div class="sub">Nov 27 – Dec 3, 2026</div>
+          </div>
+          <div class="usage-trend" style="background:var(--teal-lt);color:var(--teal)">↻ Auto-renew</div>
+        </div>
+        <div class="ftabs">
+          <div class="ftab">Today</div><div class="ftab sel">7D</div><div class="ftab">30D</div>
+        </div>
+        <div class="chart-wrap">
+          <svg class="chart-svg" viewBox="0 0 340 76" preserveAspectRatio="none">
+            <defs><linearGradient id="cg2" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#0A8070" stop-opacity=".30"/>
+              <stop offset="100%" stop-color="#0A8070" stop-opacity="0"/>
+            </linearGradient></defs>
+            <line class="chart-grid-line" x1="0" y1="19" x2="340" y2="19"/>
+            <line class="chart-grid-line" x1="0" y1="38" x2="340" y2="38"/>
+            <line class="chart-grid-line" x1="0" y1="57" x2="340" y2="57"/>
+            <path style="fill:url(#cg2);opacity:.35" d="M0,68 L49,62 L97,55 L146,58 L194,50 L243,63 L291,57 L340,52 L340,76 L0,76 Z"/>
+            <path style="fill:none;stroke:var(--teal);stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round" d="M0,68 L49,62 L97,55 L146,58 L194,50 L243,63 L291,57 L340,52"/>
+            <circle style="fill:#fff;stroke:var(--teal);stroke-width:2" cx="0"   cy="68" r="3.5"/>
+            <circle style="fill:#fff;stroke:var(--teal);stroke-width:2" cx="49"  cy="62" r="3.5"/>
+            <circle style="fill:#fff;stroke:var(--teal);stroke-width:2" cx="97"  cy="55" r="3.5"/>
+            <circle style="fill:#fff;stroke:var(--teal);stroke-width:2" cx="146" cy="58" r="3.5"/>
+            <circle style="fill:var(--teal);stroke:var(--teal);stroke-width:2" cx="194" cy="50" r="4.5"/>
+            <circle style="fill:#fff;stroke:var(--teal);stroke-width:2" cx="243" cy="63" r="3.5"/>
+            <circle style="fill:#fff;stroke:var(--teal);stroke-width:2" cx="291" cy="57" r="3.5"/>
+            <circle style="fill:#fff;stroke:var(--teal);stroke-width:2" cx="340" cy="52" r="3.5"/>
+          </svg>
+        </div>
+        <div class="day-labels"><span>Thu</span><span>Fri</span><span>Sat</span><span>Sun</span><span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span></div>
+        <div class="usage-stats">
+          <div class="ustat"><div class="ustat-lbl">Remaining</div><div class="ustat-val g">3.8 GB</div><div class="ustat-note">of 5 GB plan</div></div>
+          <div class="ustat"><div class="ustat-lbl">Used</div><div class="ustat-val gd">1.2 GB</div><div class="ustat-note">this period</div></div>
+          <div class="ustat"><div class="ustat-lbl">Today</div><div class="ustat-val a">0.3 GB</div><div class="ustat-note">since midnight</div></div>
+        </div>
+        <div class="reset-row" style="color:var(--teal)">
+          <svg width="11" height="11" viewBox="0 0 24 24" fill="none"><path d="M1 4v6h6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M3.51 15a9 9 0 1 0 .49-5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+          Auto-renews on <mark style="background:var(--teal-lt);color:var(--teal)">10 Dec 2026</mark>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="gap"></div>
+
+    <!-- Quick Access -->
+    <div class="sec-head"><h3>Quick Access</h3></div>
+    <div class="shortcuts">
+      <div class="grid grid-3">
+
+        <!-- Row 1 -->
+        <!-- Buy Bundles -->
+        <div class="tile">
+          <div class="ico ico-bundles">
+            <svg width="23" height="23" viewBox="0 0 24 24" fill="none">
+              <rect x="2" y="7" width="20" height="14" rx="3" stroke="currentColor" stroke-width="1.75"/>
+              <path d="M16 7V5a4 4 0 0 0-8 0v2" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"/>
+              <circle cx="12" cy="14" r="2" fill="currentColor" opacity=".55"/>
+              <path d="M12 12v4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <span class="tile-lbl">Bundles</span>
+        </div>
+
+        <!-- Top Up Balance -->
+        <div class="tile">
+          <div class="ico ico-topup">
+            <svg width="23" height="23" viewBox="0 0 24 24" fill="none">
+              <rect x="2" y="5" width="20" height="14" rx="3" stroke="currentColor" stroke-width="1.75"/>
+              <path d="M2 10h20" stroke="currentColor" stroke-width="1.75"/>
+              <circle cx="7" cy="15" r="1.5" fill="currentColor" opacity=".5"/>
+              <path d="M15 15h4" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"/>
+              <path d="M12 1v4M10 3l2-2 2 2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <span class="tile-lbl">Top Up</span>
+        </div>
+
+        <!-- Add-Ons -->
+        <div class="tile">
+          <div class="ico ico-addons">
+            <svg width="23" height="23" viewBox="0 0 24 24" fill="none">
+              <rect x="3" y="3" width="8" height="8" rx="2" stroke="currentColor" stroke-width="1.75"/>
+              <rect x="13" y="3" width="8" height="8" rx="2" stroke="currentColor" stroke-width="1.75"/>
+              <rect x="3" y="13" width="8" height="8" rx="2" stroke="currentColor" stroke-width="1.75"/>
+              <path d="M17 13v8M13 17h8" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <span class="tile-lbl">Add-Ons</span>
+        </div>
+
+        <!-- Row 2 -->
+        <!-- Enterprise -->
+        <div class="tile">
+          <div class="ico ico-enterprise">
+            <svg width="23" height="23" viewBox="0 0 24 24" fill="none">
+              <path d="M3 21V7l9-4 9 4v14" stroke="currentColor" stroke-width="1.75" stroke-linejoin="round"/>
+              <path d="M9 21v-7h6v7" stroke="currentColor" stroke-width="1.75" stroke-linejoin="round"/>
+              <rect x="6" y="9" width="3" height="3" rx=".5" fill="currentColor" opacity=".45"/>
+              <rect x="15" y="9" width="3" height="3" rx=".5" fill="currentColor" opacity=".45"/>
+            </svg>
+          </div>
+          <span class="tile-lbl">Enterprise</span>
+        </div>
+
+        <!-- Reseller -->
+        <div class="tile">
+          <div class="ico ico-reseller">
+            <svg width="23" height="23" viewBox="0 0 24 24" fill="none">
+              <circle cx="9" cy="7" r="3" stroke="currentColor" stroke-width="1.75"/>
+              <circle cx="17" cy="10" r="2.5" stroke="currentColor" stroke-width="1.75"/>
+              <path d="M2 21c0-4 3-7 7-7s7 3 7 7" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"/>
+              <path d="M17 15c2.5 0 5 1.5 5 5" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <span class="tile-lbl">Reseller</span>
+        </div>
+
+        <!-- Support -->
+        <div class="tile">
+          <div class="ico ico-support">
+            <svg width="23" height="23" viewBox="0 0 24 24" fill="none">
+              <circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.75"/>
+              <path d="M4.93 4.93a9 9 0 0 1 14.14 0" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" opacity=".35"/>
+              <path d="M7 13v2a2 2 0 0 1-2 2H4v-6h1a2 2 0 0 1 2 2Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>
+              <path d="M17 13v2a2 2 0 0 0 2 2h1v-6h-1a2 2 0 0 0-2 2Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <span class="tile-lbl">Support</span>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="gap"></div>
+
+    <!-- eSIM Banner -->
+    <div class="banner">
+      <div class="content">
+        <div>
+          <h4>Get e-SIM with<br>Somtel App</h4>
+          <p>Now available on select phones</p>
+          <button class="banner-cta">Learn more →</button>
+        </div>
+        <div class="hand">
+          <svg width="34" height="34" viewBox="0 0 24 24" fill="none"><path d="M8 7v10M12 6v11M16 8v9" stroke="rgba(50,35,0,.65)" stroke-width="1.75" stroke-linecap="round"/><path d="M6 14l2 6h10l2-5" stroke="rgba(50,35,0,.60)" stroke-width="1.75" stroke-linejoin="round"/></svg>
+        </div>
+      </div>
+    </div>
+
+    <div class="gap"></div>
+
+    <!-- Sales Transactions -->
+    <div class="sec-head">
+      <h3>Sales Transactions</h3>
+      <a class="see-all" href="#">Export</a>
+    </div>
+    <div class="txn-card">
+
+      <!-- Filter bar -->
+      <div class="txn-filters" id="txnFilters">
+        <button class="txnf-btn sel" data-filter="all">All</button>
+        <button class="txnf-btn" data-filter="edahab">
+          <svg width="11" height="11" viewBox="0 0 24 24" fill="none" style="vertical-align:-1px;margin-right:3px"><rect x="2" y="5" width="20" height="14" rx="3" stroke="currentColor" stroke-width="2"/><path d="M2 10h20" stroke="currentColor" stroke-width="2"/><circle cx="7" cy="15" r="1.5" fill="currentColor"/></svg>eDahab
+        </button>
+        <button class="txnf-btn" data-filter="reseller">
+          <svg width="11" height="11" viewBox="0 0 24 24" fill="none" style="vertical-align:-1px;margin-right:3px"><circle cx="9" cy="8" r="3" stroke="currentColor" stroke-width="2"/><path d="M2 20c0-3.5 3-6 7-6s7 2.5 7 6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M16 11c1.5.5 3 2 3 4.5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>Reseller
+        </button>
+      </div>
+      <div class="txn-filter-sep"></div>
+
+      <div class="txn-head">
+        <span>Date</span><span>Offer</span><span>Number</span><span style="text-align:right">Amount</span>
+      </div>
+
+      <!-- data-src: edahab = eDahab payment; reseller = sold via reseller -->
+      <div class="txn-row" data-src="edahab">
+        <div class="txn-date"><span class="d">03 Dec</span><span class="t">08:14 AM</span></div>
+        <div class="txn-offer"><span class="name">Uncapped Monthly</span><span class="vol">30 GB · 30 days</span></div>
+        <div class="txn-recv"><span class="recv-num">659001191</span></div>
+        <div class="txn-amt"><span class="amt">$5.00</span><span class="days">30 days</span></div>
+      </div>
+      <div class="txn-row" data-src="reseller">
+        <div class="txn-date"><span class="d">02 Dec</span><span class="t">06:45 PM</span></div>
+        <div class="txn-offer"><span class="name">Daily Unlimited</span><span class="vol">Unlimited · 24 hrs</span></div>
+        <div class="txn-recv"><span class="recv-num">659112884</span></div>
+        <div class="txn-amt"><span class="amt">$0.50</span><span class="days">1 day</span></div>
+      </div>
+      <div class="txn-row" data-src="edahab">
+        <div class="txn-date"><span class="d">01 Dec</span><span class="t">11:30 AM</span></div>
+        <div class="txn-offer"><span class="name">5 GB Weekly</span><span class="vol">5 GB · 7 days</span></div>
+        <div class="txn-recv"><span class="recv-num">659001191</span></div>
+        <div class="txn-amt"><span class="amt">$1.00</span><span class="days">7 days</span></div>
+      </div>
+      <div class="txn-row" data-src="reseller">
+        <div class="txn-date"><span class="d">29 Nov</span><span class="t">03:18 PM</span></div>
+        <div class="txn-offer"><span class="name">Voice 60 Mins</span><span class="vol">60 min · 7 days</span></div>
+        <div class="txn-recv"><span class="recv-num">659557002</span></div>
+        <div class="txn-amt"><span class="amt">$2.00</span><span class="days">7 days</span></div>
+      </div>
+      <div class="txn-row" data-src="edahab">
+        <div class="txn-date"><span class="d">27 Nov</span><span class="t">09:55 AM</span></div>
+        <div class="txn-offer"><span class="name">Premium 50 GB</span><span class="vol">50 GB · 30 days</span></div>
+        <div class="txn-recv"><span class="recv-num">659001191</span></div>
+        <div class="txn-amt"><span class="amt">$12.00</span><span class="days">30 days</span></div>
+      </div>
+      <button class="txn-more">Load more transactions →</button>
+    </div>
+
+    <div class="gap"></div>
+  </div>
+
+  <!-- BOTTOM NAV -->
+  <div class="nav-wrap">
+    <div class="nav-bar">
+
+      <!-- Home -->
+      <button class="nbtn active-nav" title="Home">
+        <svg width="21" height="21" viewBox="0 0 24 24" fill="none">
+          <path d="M3 12L12 4l9 8" stroke="currentColor" stroke-width="1.75" stroke-linejoin="round"/>
+          <path d="M5 10v9a1 1 0 0 0 1 1h4v-5h4v5h4a1 1 0 0 0 1-1v-9" stroke="currentColor" stroke-width="1.75" stroke-linejoin="round"/>
+        </svg>
+        <span class="nav-lbl">Home</span>
+      </button>
+
+      <!-- Chat -->
+      <button class="nbtn" title="Chat">
+        <svg width="21" height="21" viewBox="0 0 24 24" fill="none">
+          <path d="M21 15a4 4 0 0 1-4 4H8l-5 3V7a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4v8Z" stroke="currentColor" stroke-width="1.75" stroke-linejoin="round"/>
+        </svg>
+        <span class="nav-lbl">Chat</span>
+      </button>
+
+      <!-- FAB — eDahab wallet SVG icon -->
+      <div class="fab-wrap">
+        <div class="fab-ring">
+          <button class="fab" title="eDahab">
+            <img class="fab-icon" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAYAAAA+s9J6AAAS/ElEQVR4nO3de3Bc5X3G8edc9pyzu7oaSb6DhJHA5hLfkAOMiwPOQAKEdDqTQGaSmTSlUJKW6RTKtAmlzECTlLSQybQmpYRQSGEYpi4hFBoICUlKiLkZjAGbi22MbWzZlrXSrs45e8779o/VGlnYoJV29e6+5/n8gxEI/Yz3u++57jGklCAidUzVAxAlHSMkUowREinGCIkUY4REijFCIsUYIZFijJBIMUZIpBgjJFKMERIpxgiJFGOERIoxQiLFGCGRYoyQSDFGSKQYIyRSjBESKcYIiRRjhESKMUIixRghkWKMkEgxRkikGCMkUowREinGCIkUY4REijFCIsUYIZFijJBIMVv1ADQzZJzHSO4d6Y0+j9B/A07wIgzxOkQxBwCwvcUIrMWw0ssResuRbV9mGFZW8dTJYPBJvfoqRoAcfU5aBx6EzN8PK94FIxr3L5jOB78W4eFfyrG3ZtFyLQqtX0Fz++nGzEycTIxQQ0HowxhcL+3B22H6G0uBjQ9uskQIaQN+5kp4Pf/ElbFGGKFG/MI+aQ3eBfvA336w4k0lvonGYpTHPwaz7UKuilXGCBtcMQKMwsuyuG8dvMIPS/FVI7yJxlbTYuffIzX/bxhiFTHCBuUHPmz/WYm9t8EuPD71Tc5KiRD5tr9G9sTvMsQqYYQNxg98WAful8bgDbCDXaUvzkR844kQYdf34Sz4C4ZYBYywQcTBDin2/2f19/emSoQQJ3IfsRoYYZ2Lci/L4t7b4I3eU7v9vakYO1gTnLQXXqaLIU4Dr5ipQ8UIEIcel9HWS6X9Tj/Sw/fAEE79BAgApgMjAuTuv1M9ScPjSlhHyuf3zP3Xqdvfm4xxJ/YBIDppI+yWT3A1nCJetlYHyuf3nPL+nllHq145uLF5QrhA00rERi+MlnNgZpZCWHP5QpoGroQKRbmXpXHwPpi579XH/t6ES9eKohmhdx4873SI9BIEzmlIubNhOV1GitVVDSOcYeXrOc09N8/s+b3xJmxOlq8VPWRehmzbWTCbz0CUWgLXzRqRzILB1RYjnCFB6CNV+JXE3uth5l8pfbHW8Y2PbexnRY4N0zwNgb0MVvO5MNNLUECP0dLSUttZ6JgYYY35hX0Sww/D3n9TbQ+2TAhOmiGkewYKsgdu8ypY2WUQ5lwGV4cYYY3EwQ7p7/pXZEb+sTYn18eiK29KSqcfgb0MRvMKRNZipJsXIjJmG67jVe9njpPL5ZDBttKLRw7ClD4AoBA1wXOaYbhtENYJ3HecBEZYZVHuZYnB78Me/Mn09/eOse8mnX6MOmuQaVuJQ8WT0NbRV9PbjAbzB9EcvSJlfhui/NNwxUsQ8Vuww+iDOcu/z7FfSzNEbM1H0VkLt/MyXlnzERhhFQShD2v0WSn2fhPOyDOlL1Ya34RTAeXNSWF0Q2TOh93Uh+G4F5nWRTVZXYoRYBt5BEFeOuGLiEY2I3/oebSJBwDgyJuBx835kSYebZ31Pciur9dsdW5UjHAaZJxHcf9PSzfPFjaUvljJi3NsxQCAKLUWZnop4vRyIHMSLKcLoZxjpD236nMXIyAO98lisBdu+CrM0dfg+5vg+E/BQfChGatGhIjc+cCC+2C3ruHKOIYRToFf2CfNg/fCHLoNdnHg2Judx9iczDuXwm1eBR+LgcwiNLWcWLPNyXJwZrwDxvCriAq/hyU2AYVNcMRwae5aBHcsvC/xQxhhBeJghwx3fvuDm2eBI/eFxv19eZ9oWK5GuvM82F4votSSml/sHAc7pDH6OqKRzQhHfgNPPAErKkxtc7KWRIjRlithd9+R+IM3jHASwuHnZLjrFjT5jx393FuqE9JcjNBdjlR2KZA5CcI6oWbBBaEPGeUOb04W8xvhBC8iFfwa0gzrL7hjESHiWdfC6r410SsiI/wIUe5lKXddi9Tok6UvmA6iVCeKzlpY6dNhN50KmV6MYpyu2aVcQejDlnul9LdBDL8CM94Ic3QzjLC0D2qIGd6crDYRwp//b/BmX5HYEBnhMYhDj0ux+48wbH4JTS1nI3B6YWf6YNgthml6NbmUq3zuTYy+dnh1M8Trpf1O4KirsA6kGSLuTu6dGIxQgSD04Q/vkll7J8TwC4dPBcR2pnTubcIBHZ2CO6qxG4SjJTKR+4eMsIZG/QCGGJJ2tAdi9DWYo69Bjj4Lu1javG34TckqCxf9Fk7zmYlbDRP4vlMb5U1JU+xBNLIZ8egmWPJNpPxnSrEBRw+O8ZWIEKKwEWg+U/UkM44r4RT4hX0yKmxF1twD/+Av4EYvQYhXk7kpWS0iRNT0Odh9DyduJWSEE4z6AUzzg/8nMsrJ4uAzGPI3oq24EZ54AgAgQguREKrGbHi2Wfp4IwdB6bSKcBA5NqJFBwzPTdZlbdwcBbB7aKd86f3n8e7QO9h2aDMGgoPIjz2tqCDGnlokSyuaZfXDgoEYfPOaDgsGZllF9DgBut08lmYG0YMR2MEWCTdZR0kTuxIGoY8ntz0mn97xCLYOvYFIRLBNG5blwkKiXgPKTHwj67Qi9M9diwtP/mPMa12YmD+EREb46Jb18s5XbkUkIripLKOrEzEk4jhAZIRY1Xk+vrHyeqM9O0v1WDWXqAjf3P+GvH3DjdhReBsZk3eX17Mw9hEZIa465a9w8WmXa/0umZgIH92yXq7bdAtcs5krXwMpiBxWHncWrum/SdtVMRER/vildfKht+/i6tegwthHu9eFW/7gB1ruK2ofIQPUQ3l/8dZP/Qi9HadoFaLWz6J4dMt6BqgJCwYsy8U3f301BvMHVY9TVdpG+Ob+N+S6TbcwQI1YMBDGPr719J9ptfmmbYS3b7gRrtmsegyqMsfysGN4G3780jptQtQywke3rJc7Cm/zKGidiSERxj7C2J/WFUeZVBMeevsuvLn/DS1C1C7CIPTx0NZ7uArWkTD2URA5tKRasaJrNVZ0rcaiph7EkCiI3JSCtKWDn2z6FxQnfpRHA9Lu2tHndv1ODgTvcV+wThREDp9dcAk+3ftFHN/SfcRnjg7mD+KZ956W92z+AcLYh2NN/sJtx/Lw/IHf4fV9L8kz5i1r6E0e7VbCX777+OGLrUmd8qbnP5x9J64+60ajt+OUD33ob3t2Fi46+Q+Ney/+H2NF12oUiiMV/QxbOnj4zQeqObYSWkUYhD42HthQ0Tsq1Ub5nN5kVinX8XDDud81VnatQhj7k/4ZjuXh9wO/aPhTFlpF+G5uuwzEsOoxEq9QHMEVZ1xX8Un1a/pvMip+A41NPPPe0w19gEarCLceeB2ItfotNZwYEp2ZeTi/+zMV76e1Z2fhK31XVLRZaps2ntv9VKU/qq5o9YodKLyveoTEi+MA5y64AFO9O/6cngsM25z88ULH8rBx/wsNfZRUqwhHiwVU8gdI1RcZIZbP/uSUv9+zspifXVjRaYvICDGQ39mwm6RaRSjjyo6uUW2knfTUv9dzMSfbjTgOKvq+/fn9U/6ZqmkVIekhFoWKvycXHKr+IDNEqwgNq0n1CARg7/CeKX+vH/gYGN0Hy6rguYyxiaHw0JR/pmpaRQgAkWjgPXQN2NLBpoEXp/z9B/0BuSu/M1HX/WoVYTqVUT1C4lmWiw17f4MgnPxJ9/F+/s7PEvdGqlWEHak2Hh1VzIKBgcJu3L/57oqPVu4e2ikf2no3Mqlk7VZoFSEAtHtd/GBexcq3Gv122y8n/QcRhD5u+b9rE/kmql2EJzQtVD0CAciYLfjOhuvx6Jb1Hxvi7qGd8oZfXS135Xcm8rpf7d52uryORO3U17NMqgnrNn4bT+94RH6u98tYOe+sI54zsXtop/z5Oz/Df791LwAkMkBAwwgt00Z3UzfeHtnGGOtAJtWEt0e24TsvXAe8ANnpLkDGcvG+vw+BGIYtncTGV6ZdhLGI0NfWi+0j21WPQmMsGIdvss4Xc8gV5RFfSzrt9gnLTj/uzIruTaOZwy2UI2kZYSwF5qbb0Nd6Co+UUt3TMkKgFGJfWy/m8JQF1TltIyw747gz0JJqZYhUt7SOMJalx1mfM3sV5nhd3EekuqR1hGWxFFjWsRRLO1aUHizCVZHqSCIiBEohLsjOw/lz1xxeFRkj1YPERAiUQnQsB8s6lmJF12rM8boAgEGSUtqdrP845f3Euek2zE0vRSwF9vk5DAcDGAgOIl/MKZ6wuia+ufAcXf1JXIRl5RgBoMtrKZ1XVDhPrcRSIBYRDoSFI95oYkgGWScSG+FE46PUjWXaR7zRhHGI7cM7sH1ke8XPgKDqY4QJUn6jcSwHfW29WNS6CHsK7+O1wc1cGRVihAk0ftVfkJ2HBdl52HroTWwdeoOrogKJOjpKHxZLcfgSv6UdK1SPk0iMkAB8cB51zdxzVY+SOIyQDoulgGXaDHGGMUL6EMdyGOIMYoT0IeUri04/7kxeSTQDGCEdVfnG6EVNPQyxxhghHVMsBRa1LuL5wxpjhPSRLMPEkvZTeS9mDTFC+kjlUxc8iV87jJAmZUn7qdw3rBFGSB8rloKfbF5DjJAmxbEcdHqdXA1rgBHSpHWmu1SPoCVGSJPW5XWoHkFLjJAmpXz7E/cLq48R0qQ5loNsig9xqTZGSBXJWC4PzlQZI6SKcZO0uhghVYwrYXUxQiLFGCGRYoyQSDFGSKQYIyRSjBESKcYIiRRjhESKMUJqfJZAq9OmeoopY4SkhRa3TfUIU8YISQsd2ca915ERUsOzpYN5rQsb9qpyRkgNLYz9hn+kGyOkhhYZIVYvuEj1GNPCCKnhLZ/X37CbogAjpAYWxj4+O/8StGdnqR5lWhghNazICPHp3i+qHmPaGCE1pDD2sarzfPR2nNLQm6IAI6QG9rWl31A9QlUwQmo4BZHDnyz+84Y+NzgeI6SGEsY+Vh53Fi4+7XItAgQYITWQMPYxP7sQ1/TfpE2AACOkBhHGPtq9Ltx87jqj0U9JTMQIqe4ViiNo97rwz+f9SLsAAUZIdSyGREHksGrOp3DHBQ9oGSAA2KoHIDqaQnEEmVQT/vITN+P83gu12geciBFS3YghERTzgCVwUc/luOzUr2q7+o3HCGlKqvE8ijgOAACRiAAAJzT34DN9n8c5PRckIr4yRjhGGB4AIIUQAGCO/ZWOlLWzaEm1Tvu/k7FcdKa7MDvbjb72U7G461RtTr5XKrERxiKCYTUhncqgxy1gDt7DfHMbMtgDv7AZtsljVkdj9z+IEfPsaceSclykPbcaIzW8REYoDA/HN8/D0vQWzCs+CCPcAEM4h/95hv0dnQghALS08Gm91ZS4CF1nFta27MX8/JdgDI190XQ+8nuIaikxEQrDw5Im4Gzjv5AaerIUHlc8qgOJiFAYHi45bhjz8zfBiMCVj+qK9hG6zixcmn4R7UP/ztWP6pLWL0lheKUA/f/g6kd1S9sIheHhvKb3SgES1TFtI+xxDqEvul31GEQfS8sIheFhberuI879EdUr7Q7MWKaNfmcj7OKA6lGIJkW7lTAWEU4W61WPQTRp2kXYZ21HxiyqHoNo0rSK0Eh5WCj+V/UYRBXRKkJZ9NHjjageg6giWkXYbO6GI4ZVj0FUEa0iXOQyQGo8WkXYboyqHkFvpoNC1KR6Cu1oFWEYHlQ9gtakGUJa0/9oCzqSVhFSbRnCQcqdrXoM7WgVoeMk5xO6VJBmCNfNJvLDmGpJrwjdNtUj6EuEiFJrEcms6km0o9W1o9LuVj2C1oz0J2Fr9YqpD1qthHmcAskXSW2YDvymC1RPoSWtImzr6OP+Si2IEFGqE6mWlfz/WwNaRRjJLOLWrwKCn55dbbLt63AdT/UYWtIqwpQNmK1f4OfJVJm0gbj9a6rH0JZWEQKA0bzaiFKdXA2rRYQQLdfCy3RxU7RG9IvQyiLquFH1GHoQIaQNFLuuUz2J1rSLEACM9i8bodnM1bAK5PGPcRWsMS0jdB0PZs9PVY/R2ESI0ZYrYbbp/ZTceqBlhABgt64xolnf4mo4FSJE2HQ27O47GOAMMKSc/hNX61UxAoK3Pi+bCg/ziOlkiRAi0w+j9ynDsHiJ2kzQdiUESqcsUic+YBTTa7kiToYIUUyvZYAzTOsIgdL+YWrxE8ZI5lKGeCwiBESIeNa1iE98hAHOMK03Ryfy994p3b1/ysejlY29KUXufGDBfbBb13AfUIFERQgAcbBDhu/eiHT+/tKLMIkxjsUnbaA463tIzb2Kq59CiYuwLMq9LIv71sEr/LC0MiaEtAHp9CNuuQr27C8wvjqQ2AjL/MCH7T8rxfALMIYfhyFeB4xB1WNVj2yHNBcjdJdDuGch1X42T77XmcRHeDSjfqB6hKpJe67qEehjMEIixbQ/RUFU7xghkWKMkEgxRkikGCMkUowREinGCIkUY4REijFCIsUYIZFijJBIMUZIpBgjJFKMERIpxgiJFGOERIoxQiLFGCGRYoyQSDFGSKQYIyRSjBESKcYIiRRjhESKMUIixRghkWKMkEgxRkikGCMkUowREin2/xQe7uZ8eSXPAAAAAElFTkSuQmCC" alt="eDahab"/>
+          </button>
+        </div>
+        <span class="fab-lbl">eDahab</span>
+      </div>
+
+      <!-- Location -->
+      <button class="nbtn" title="Location">
+        <svg width="21" height="21" viewBox="0 0 24 24" fill="none">
+          <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7Z" stroke="currentColor" stroke-width="1.75"/>
+          <circle cx="12" cy="9" r="2.5" stroke="currentColor" stroke-width="1.75"/>
+        </svg>
+        <span class="nav-lbl">Location</span>
+      </button>
+
+      <!-- Profile -->
+      <button class="nbtn" title="Profile">
+        <svg width="21" height="21" viewBox="0 0 24 24" fill="none">
+          <path d="M12 12a4.5 4.5 0 1 0-4.5-4.5A4.5 4.5 0 0 0 12 12Z" stroke="currentColor" stroke-width="1.75"/>
+          <path d="M4 21c1.8-4.2 14.2-4.2 16 0" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"/>
+        </svg>
+        <span class="nav-lbl">Profile</span>
+      </button>
+
+    </div>
+  </div>
+
+
+  <!-- FLASH MODAL -->
+  <div class="modal-overlay" id="flashModal">
+    <div class="modal">
+      <div class="modal-head">
+        <button class="modal-close" id="closeModal">✕</button>
+        <div class="modal-lightning">
+          <svg width="25" height="25" viewBox="0 0 24 24" fill="none"><path d="M13 2L4.5 13.5H11L10 22L20.5 10.5H14L13 2Z" fill="rgba(35,22,0,.72)" stroke-linejoin="round"/></svg>
+        </div>
+        <div class="modal-tag">⚡ Flash Offer · Today Only</div>
+        <div class="modal-title">Special Top-Up Deal</div>
+        <div class="modal-sub">Limited slots · Expires when stock ends</div>
+      </div>
+      <div class="modal-body">
+        <div class="offer-items">
+          <div class="offer-item">
+            <div class="offer-item-icon"><svg width="19" height="19" viewBox="0 0 24 24" fill="none"><path d="M4 19V5M8 19V9M12 19V12M16 19V7M20 19V10" stroke="rgba(50,35,0,.58)" stroke-width="1.75" stroke-linecap="round"/></svg></div>
+            <div class="offer-item-text"><div class="offer-item-name">Mobile Data</div><div class="offer-item-note">High speed 4G / LTE</div></div>
+            <div class="offer-item-val">5 GB</div>
+          </div>
+          <div class="offer-item">
+            <div class="offer-item-icon"><svg width="19" height="19" viewBox="0 0 24 24" fill="none"><path d="M7 4h3l2 5-2 2c1 2 3 4 5 5l2-2 5 2v3c0 1-1 2-2 2-9 0-16-7-16-16 0-1 1-2 2-2Z" stroke="rgba(50,35,0,.58)" stroke-width="1.75" stroke-linejoin="round"/></svg></div>
+            <div class="offer-item-text"><div class="offer-item-name">National Calls</div><div class="offer-item-note">All local networks</div></div>
+            <div class="offer-item-val">Unlimited</div>
+          </div>
+          <div class="offer-item">
+            <div class="offer-item-icon"><svg width="19" height="19" viewBox="0 0 24 24" fill="none"><path d="M21 15a4 4 0 0 1-4 4H8l-5 3V7a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4v8Z" stroke="rgba(50,35,0,.58)" stroke-width="1.75" stroke-linejoin="round"/></svg></div>
+            <div class="offer-item-text"><div class="offer-item-name">SMS Messages</div><div class="offer-item-note">National only</div></div>
+            <div class="offer-item-val">Unlimited</div>
+          </div>
+        </div>
+        <div class="modal-price-row">
+          <div><div class="modal-price-label">Special Price</div><div class="modal-old-price">$2.50</div><div class="modal-new-price">$0.25</div></div>
+          <div class="modal-validity"><div class="modal-val-num">7</div><div class="modal-val-lbl">days valid</div></div>
+        </div>
+        <div class="modal-timer">
+          <span class="modal-timer-lbl">Offer ends in</span>
+          <div class="modal-timer-digs">
+            <span class="tdig" id="mth">04</span><span class="tsep">:</span>
+            <span class="tdig" id="mtm">37</span><span class="tsep">:</span>
+            <span class="tdig" id="mts">12</span>
+          </div>
+        </div>
+        <button class="modal-cta">⚡ Top Up for $0.25 Now</button>
+        <div class="modal-terms">By proceeding you agree to Somtel's Terms &amp; Conditions</div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<script>
+  /* Inject real logo base64 */
+  const LOGO = 'data:image/png;base64,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';
+  document.querySelectorAll('img[src="data:image/png;base64,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"]').forEach(img => img.src = LOGO);
+
+  /* Carousel dots */
+  const scr=document.querySelector('.ap-scroll');
+  const dots=document.querySelectorAll('.c-dots .cd');
+  if(scr&&dots.length){scr.addEventListener('scroll',()=>{const i=Math.round(scr.scrollLeft/276);dots.forEach((d,j)=>d.classList.toggle('on',i===j));},{passive:true})}
+
+  /* Filter tabs — scoped per panel so switching one panel's tabs doesn't affect others */
+  document.querySelectorAll('.usage-panel').forEach(panel => {
+    const tabs = panel.querySelectorAll('.ftab');
+    tabs.forEach(t => {
+      t.addEventListener('click', () => {
+        tabs.forEach(x => x.classList.remove('sel'));
+        t.classList.add('sel');
+      });
+    });
+  });
+
+  /* Flash modal */
+  const modal=document.getElementById('flashModal');
+  document.getElementById('closeModal').addEventListener('click',()=>modal.classList.remove('open'));
+  modal.addEventListener('click',e=>{if(e.target===modal)modal.classList.remove('open')});
+
+  /* Plan switcher tabs */
+  document.getElementById('planSwitcher').addEventListener('click', e => {
+    const tab = e.target.closest('.psw-tab');
+    if (!tab) return;
+    const idx = tab.dataset.plan;
+    document.querySelectorAll('.psw-tab').forEach(t => t.classList.remove('sel'));
+    document.querySelectorAll('.usage-panel').forEach(p => p.classList.remove('active'));
+    tab.classList.add('sel');
+    const panel = document.getElementById('panel-' + idx);
+    panel.classList.add('active');
+  });
+
+  /* Transaction filter */
+  document.getElementById('txnFilters').addEventListener('click', e => {
+    const btn = e.target.closest('.txnf-btn');
+    if (!btn) return;
+    const f = btn.dataset.filter;
+    document.querySelectorAll('.txnf-btn').forEach(b => b.classList.remove('sel'));
+    btn.classList.add('sel');
+    document.querySelectorAll('.txn-row').forEach(row => {
+      if (f === 'all' || row.dataset.src === f) {
+        row.style.display = '';
+      } else {
+        row.style.display = 'none';
+      }
+    });
+  });
+
+  /* Countdown */
+  let h=4,m=37,s=12;
+  function tick(){s--;if(s<0){s=59;m--;if(m<0){m=59;h--;if(h<0){h=m=s=0}}}
+    document.getElementById('mth').textContent=String(h).padStart(2,'0');
+    document.getElementById('mtm').textContent=String(m).padStart(2,'0');
+    document.getElementById('mts').textContent=String(s).padStart(2,'0');}
+  setInterval(tick,1000);
+
+  /* Auto-show flash popup */
+  setTimeout(()=>{if(!sessionStorage.getItem('flashShown')){modal.classList.add('open');sessionStorage.setItem('flashShown','1');}},1500);
+
+  /* ═══ eDahab FAB → login → DahabPlus ═══ */
+  document.addEventListener('DOMContentLoaded', function(){
+    const overlay    = document.getElementById('edahabOverlay');
+    const loginPanel = document.getElementById('edahabLogin');
+    const appPanel   = document.getElementById('edahabApp');
+    const backBtn    = document.getElementById('edahabBackBtn');
+    const loginBtn   = document.getElementById('edahabLoginBtn');
+    const userInput  = document.getElementById('edahabUser');
+    const passInput  = document.getElementById('edahabPass');
+    const errorBox   = document.getElementById('edahabError');
+    const pwToggle   = document.getElementById('edahabPwToggle');
+    const appClose   = document.getElementById('edahabAppClose');
+    const logoImg    = document.getElementById('edahabLogoImg');
+
+    // Copy wallet icon from FAB into login header
+    const fabIcon = document.querySelector('.fab .fab-icon');
+    if(fabIcon && fabIcon.src) logoImg.src = fabIcon.src;
+
+    // FIND THIS: function openOverlay(){ ... }
+// REPLACE WITH:
+function openOverlay(){
+  window.lastLauncher = 'somtel';
+  overlay.classList.add('open');
+  showApp(); // This jumps straight past the login panel
+}
+
+    function closeOverlay(){
+      overlay.classList.remove('open');
+    }
+
+    function showApp(){
+      window.lastLauncher = 'somtel';
+      loginPanel.style.display = 'none';
+      appPanel.classList.add('visible');
+    }
+
+    // Attach click to FAB
+    const fabBtn = document.querySelector('.fab[title="eDahab"]');
+    if(fabBtn) fabBtn.addEventListener('click', openOverlay);
+
+    backBtn.addEventListener('click', closeOverlay);
+    overlay.addEventListener('click', e=>{ if(e.target===overlay) closeOverlay(); });
+    appClose.addEventListener('click', closeOverlay);
+
+    pwToggle.addEventListener('click', ()=>{
+      const isPass = passInput.type === 'password';
+      passInput.type = isPass ? 'text' : 'password';
+      pwToggle.textContent = isPass ? 'Hide' : 'Show';
+    });
+
+    function attemptLogin(){
+      loginBtn.textContent = 'Signing in…';
+      loginBtn.disabled = true;
+      setTimeout(()=>{
+        loginBtn.textContent = 'Sign In';
+        loginBtn.disabled = false;
+        showApp();
+      }, 700);
+    }
+
+    loginBtn.addEventListener('click', attemptLogin);
+    passInput.addEventListener('keydown', e=>{ if(e.key==='Enter') attemptLogin(); });
+    userInput.addEventListener('keydown', e=>{ if(e.key==='Enter') passInput.focus(); });
+  });
+
+
+  /* ═══ SOMTEL Login Overlay ═══ */
+  (function(){
+    var somtelOverlay = document.getElementById('somtelOverlay');
+    var somtelBack    = document.getElementById('somtelBackBtn');
+    var somtelLogin   = document.getElementById('somtelLoginBtn');
+    var somtelUser    = document.getElementById('somtelUser');
+    var somtelPass    = document.getElementById('somtelPass');
+    var somtelToggle  = document.getElementById('somtelPwToggle');
+    var edahabOverlay = document.getElementById('edahabOverlay');
+
+    function openSomtelLogin(){
+      window.lastLauncher = 'dahabplus';
+      // Close DahabPlus first
+      if(edahabOverlay) edahabOverlay.classList.remove('open');
+      somtelOverlay.classList.add('open');
+      setTimeout(function(){ if(somtelUser) somtelUser.focus(); }, 300);
+    }
+
+    function closeSomtelLogin(){
+      somtelOverlay.classList.remove('open');
+      if(window.lastLauncher === 'dahabplus' && edahabOverlay){
+        edahabOverlay.classList.add('open');
+        var edahabLogin = document.getElementById('edahabLogin');
+        var edahabApp = document.getElementById('edahabApp');
+        if(edahabLogin) edahabLogin.style.display = 'none';
+        if(edahabApp) edahabApp.classList.add('visible');
+      }
+    }
+
+    // Back button → close
+    if(somtelBack) somtelBack.addEventListener('click', closeSomtelLogin);
+    if(somtelOverlay) somtelOverlay.addEventListener('click', function(e){ if(e.target === somtelOverlay) closeSomtelLogin(); });
+
+    // Password toggle
+    if(somtelToggle) somtelToggle.addEventListener('click', function(){
+      var isPass = somtelPass.type === 'password';
+      somtelPass.type = isPass ? 'text' : 'password';
+      somtelToggle.textContent = isPass ? 'Hide' : 'Show';
+    });
+
+    // Sign In → close overlay (lands on Somtel app)
+    function doSomtelLogin(){
+      somtelLogin.textContent = 'Signing in…';
+      somtelLogin.disabled = true;
+      setTimeout(function(){
+        somtelLogin.textContent = 'Sign In to Somtel';
+        somtelLogin.disabled = false;
+        window.lastLauncher = 'somtel';
+        somtelOverlay.classList.remove('open');
+      }, 700);
+    }
+    if(somtelLogin) somtelLogin.addEventListener('click', doSomtelLogin);
+    if(somtelPass)  somtelPass.addEventListener('keydown', function(e){ if(e.key==='Enter') doSomtelLogin(); });
+    if(somtelUser)  somtelUser.addEventListener('keydown', function(e){ if(e.key==='Enter' && somtelPass) somtelPass.focus(); });
+
+    // Expose globally so inlined DahabPlus can call directly
+    window.openSomtelLogin = openSomtelLogin;
+
+    // Keep postMessage listener as fallback
+    window.addEventListener('message', function(e){
+      if(e.data === 'openSomtelLogin'){
+        openSomtelLogin();
+      }
+    });
+  })();
+
+</script>
+
+  <!-- ═══ eDahab OVERLAY ═══ -->
+  <div class="edahab-overlay" id="edahabOverlay">
+    <div class="edahab-shell" id="edahabShell">
+
+      <!-- LOGIN SCREEN -->
+      <div class="edahab-login" id="edahabLogin">
+        <div class="edahab-login-header">
+          <button class="edahab-back-btn" id="edahabBackBtn" title="Close">&#8592;</button>
+          <div class="edahab-logo-wrap">
+            <img id="edahabLogoImg" src="" alt="eDahab"/>
+          </div>
+          <div class="edahab-brand">eDahab</div>
+          <div class="edahab-tagline">Powered by DahabPlus</div>
+        </div>
+
+        <div class="edahab-login-body">
+          <div>
+            <div class="edahab-field-label">Username or Phone</div>
+            <input class="edahab-input" id="edahabUser" type="text" placeholder="Enter username or phone"/>
+          </div>
+          <div>
+            <div class="edahab-field-label">Password</div>
+            <div class="edahab-pw-wrap">
+              <input class="edahab-input" id="edahabPass" type="password" placeholder="Enter password"/>
+              <button class="edahab-pw-toggle" id="edahabPwToggle">Show</button>
+            </div>
+          </div>
+          <div class="edahab-login-error" id="edahabError">
+            Invalid username or password. Please try again.
+          </div>
+          <button class="edahab-login-btn" id="edahabLoginBtn">Sign In</button>
+          <div class="edahab-forgot">Forgot password?</div>
+        </div>
+      </div>
+
+      <!-- DAHABPLUS APP PANEL -->
+      <div class="edahab-app-panel" id="edahabApp">
+        <div class="edahab-app-bar">
+          <div class="edahab-app-bar-title">DahabPlus</div>
+          <button class="edahab-app-close" id="edahabAppClose">&#10005;</button>
+        </div>
+        <script>
+  // Stub so DahabPlus Somtel FAB works even before full IIFE runs
+  window.openSomtelLogin = function(){
+    var ov = document.getElementById('somtelOverlay');
+    var edahab = document.getElementById('edahabOverlay');
+    if(edahab) edahab.classList.remove('open');
+    if(ov){ ov.classList.add('open'); }
+    setTimeout(function(){
+      var u = document.getElementById('somtelUser');
+      if(u) u.focus();
+    }, 300);
+  };
+</script>
+<div id="dahabInline">
+  <div class="phone">
+    <div class="app" id="appRoot">
+
+      <!-- HEADER -->
+      <div class="header">
+        <div class="topbar">
+          <div class="topLeft">
+            <div class="topIcon" title="Profile">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <circle class="g" cx="12" cy="8" r="4"></circle>
+                <path class="g" d="M4 20c0-4 4-6 8-6s8 2 8 6"></path>
+              </svg>
+            </div>
+          </div>
+
+          <div class="brandCenter" aria-label="DahabPlus">
+            <div class="brandText">DahabPlus</div>
+          </div>
+
+          <div class="topRight">
+            <div class="topIcon" title="Notifications">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path class="g" d="M6 9a6 6 0 0 1 12 0v5l2 2H4l2-2V9z"></path>
+                <path class="g" d="M10 18a2 2 0 0 0 4 0"></path>
+              </svg>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- CAROUSEL -->
+      <div class="carouselArea">
+        <div class="carouselWrap">
+          <div class="walletCard">
+            <div class="walletTop">
+              <div class="walletName">DMT Account • HRGDxxxx</div>
+              <div class="walletBrand">Account</div>
+            </div>
+            <div class="walletMid">
+              <div class="walletLabel">Balance</div>
+              <div style="margin-top:8px;font-weight:var(--fw-heavy);font-size:20px;">********</div>
+            </div>
+            <button class="walletBtn">Check Balance</button>
+          </div>
+
+          <div class="walletCard" style="background:#2f8a45">
+            <div class="walletTop">
+              <div class="walletName">DBI Account • 102xxxxxx</div>
+              <div class="walletBrand">Account</div>
+            </div>
+            <div class="walletMid">
+              <div class="walletLabel">Balance</div>
+              <div style="margin-top:8px;font-weight:var(--fw-heavy);font-size:20px;">********</div>
+            </div>
+            <button class="walletBtn">Check Balance</button>
+          </div>
+
+          <div class="walletCard" style="background:#3f8f4b">
+            <div class="walletTop">
+              <div class="walletName">eDahab Wallet • 65xxxxxxx</div>
+              <div class="walletBrand">eDahab</div>
+            </div>
+            <div class="walletMid">
+              <div class="walletLabel">Balance</div>
+              <div style="margin-top:8px;font-weight:var(--fw-heavy);font-size:20px;">********</div>
+            </div>
+            <button class="walletBtn">Check Balance</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- ACTION ROW -->
+      <div class="actions">
+        <div class="action" id="qaMerchant">
+          <div class="circle cMerchant" title="Merchant">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path class="w" d="M4 9l2-4h12l2 4"></path>
+              <path class="w" d="M6 9v10h12V9"></path>
+              <path class="w" d="M9 19v-6h6v6"></path>
+            </svg>
+          </div>
+          <div class="label">MERCHANT</div>
+        </div>
+
+        <div class="action" id="qaSubscriber">
+          <div class="circle cSubscriber" title="Subscriber">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <circle class="w" cx="12" cy="8" r="4"></circle>
+              <path class="w" d="M4 20c0-4 4-6 8-6s8 2 8 6"></path>
+            </svg>
+          </div>
+          <div class="label">SUBSCRIBER</div>
+        </div>
+
+        <div class="action">
+          <div class="circle cTransfer" title="Transfer">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path class="w" d="M7 7h10"></path>
+              <path class="w" d="M13 4l4 3-4 3"></path>
+              <path class="w" d="M17 17H7"></path>
+              <path class="w" d="M11 20l-4-3 4-3"></path>
+            </svg>
+          </div>
+          <div class="label">TRANSFER</div>
+        </div>
+
+        <div class="action">
+          <div class="circle cRemit" title="Remit">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path class="w" d="M3 11.5L21 3l-8.5 18-2.5-7L3 11.5z"></path>
+              <circle class="w" cx="18" cy="18" r="2"></circle>
+            </svg>
+          </div>
+          <div class="label">REMIT</div>
+        </div>
+
+        <div class="moreWrap">
+          <div class="action" id="moreBtn">
+            <div class="circle cMore" title="More">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <circle class="wfill" cx="7" cy="12" r="1.7"></circle>
+                <circle class="wfill" cx="12" cy="12" r="1.7"></circle>
+                <circle class="wfill" cx="17" cy="12" r="1.7"></circle>
+              </svg>
+            </div>
+            <div class="label">MORE</div>
+          </div>
+
+          <div class="morePopup" id="morePopup">
+            <h3>Services</h3>
+
+            <div class="groupBtn" data-group="edahab">
+              <div class="groupLeft">
+                <div class="pill p1">E</div>
+                <div>eDahab Services</div>
+              </div>
+              <div class="arrow">▸</div>
+            </div>
+
+            <div class="groupBtn" data-group="account">
+              <div class="groupLeft">
+                <div class="pill p2">A</div>
+                <div>Account Services</div>
+              </div>
+              <div class="arrow">▸</div>
+            </div>
+
+            <div class="groupBtn" data-group="remit">
+              <div class="groupLeft">
+                <div class="pill p3">R</div>
+                <div>Remittance Services</div>
+              </div>
+              <div class="arrow">▸</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- TRANSACTIONS -->
+      <div class="sectionHead">
+        <div class="sectionTitle">TRANSACTIONS</div>
+        <div class="seeAll">SEE ALL</div>
+      </div>
+
+      <div class="txRow">
+        <div class="txItem">
+          <div class="txLeft">
+            <div class="txIcon">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path class="w" d="M7 3h7l3 3v15H7z"></path>
+                <path class="w" d="M9 10h6"></path>
+                <path class="w" d="M9 14h6"></path>
+              </svg>
+            </div>
+            <div class="txText">
+              <div class="txName">Payment Transaction</div>
+              <div class="txMeta">Reference • ******</div>
+            </div>
+          </div>
+          <div class="txRight">
+            <div class="txAmt">$ 40.00</div>
+            <div class="txDate">Nov 13, 2021</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- DahabCards -->
+      <div class="promoStrip">
+        <div class="promoCard">
+          <div class="promoLeft">
+            <div class="mcDot"></div>
+            <div>
+              <div class="pTitle">DahabCards</div>
+              <div class="pSub">Shop online with ease</div>
+            </div>
+          </div>
+          <div class="promoGo" title="Open">
+            <svg viewBox="0 0 24 24" aria-hidden="true" style="width:18px;height:18px">
+              <path d="M10 7l6 5-6 5" fill="none" stroke="#111" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+            </svg>
+          </div>
+        </div>
+      </div>
+
+      <!-- SERVICES -->
+      <div class="sectionHead">
+        <div class="sectionTitle">SERVICES</div>
+        <div style="width:80px"></div>
+      </div>
+
+      <div class="services">
+        <div class="servicesGrid">
+          <div class="svc"><div class="svcIcon">⚡</div><div class="svcName">ELECTRICITY</div></div>
+          <div class="svc"><div class="svcIcon">💧</div><div class="svcName">WATER</div></div>
+          <div class="svc"><div class="svcIcon">⛽</div><div class="svcName">GAS</div></div>
+          <div class="svc"><div class="svcIcon">📱</div><div class="svcName">MIFI</div></div>
+
+          <div class="svc"><div class="svcIcon">🎓</div><div class="svcName">EDUCATION</div></div>
+          <div class="svc"><div class="svcIcon">💰</div><div class="svcName">FINANCE</div></div>
+          <div class="svc"><div class="svcIcon">📈</div><div class="svcName">INSURANCE</div></div>
+          <div class="svc"><div class="svcIcon">📞</div><div class="svcName">TELECOM</div></div>
+        </div>
+      </div>
+
+
+
+
+      <!-- Modal Overlay -->
+      <div class="overlay" id="overlay">
+        <div class="modal" id="modal" role="dialog" aria-modal="true">
+          <div class="modalTop">
+            <div class="modalTitle" id="modalTitle">Title</div>
+            <button class="closeX" id="closeModal" aria-label="Close">✕</button>
+          </div>
+          <div id="modalBody"></div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- ═══ BOTTOM NAV — outside .app, fixed at bottom ═══ -->
+      <!-- ═══ BOTTOM NAV ═══ -->
+      <div class="dp-nav-wrap">
+        <div class="dp-nav-bar">
+
+          <!-- Pay -->
+          <button class="dp-nbtn dp-active" id="dpNavPay" title="Pay">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="2" y="6" width="20" height="13" rx="3"/>
+              <path d="M2 10h20"/>
+              <path d="M6 14h4"/>
+            </svg>
+            <span class="dp-nav-lbl">Pay</span>
+          </button>
+
+          <!-- Services -->
+          <button class="dp-nbtn" id="dpNavServices" title="Services">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="3" width="7" height="7" rx="1.5"/>
+              <rect x="14" y="3" width="7" height="7" rx="1.5"/>
+              <rect x="3" y="14" width="7" height="7" rx="1.5"/>
+              <rect x="14" y="14" width="7" height="7" rx="1.5"/>
+            </svg>
+            <span class="dp-nav-lbl">Services</span>
+          </button>
+
+          <!-- Center FAB — Somtel -->
+          <div class="dp-fab-wrap">
+            <div class="dp-fab-ring">
+              <button class="dp-fab" id="dpNavSomtel" type="button" title="Somtel SuperApp" onclick="if(window.openSomtelLogin){window.openSomtelLogin();} return false;">
+                <img src="data:image/png;base64,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" alt="Somtel"/>
+              </button>
+            </div>
+            <span class="dp-fab-lbl">Somtel</span>
+          </div>
+
+          <!-- Summary -->
+          <button class="dp-nbtn" id="dpNavSummary" title="Summary">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M7 3h7l3 3v15H7z"/>
+              <path d="M9 10h6"/>
+              <path d="M9 14h6"/>
+              <path d="M9 18h4"/>
+            </svg>
+            <span class="dp-nav-lbl">Summary</span>
+          </button>
+
+          <!-- QR Code -->
+          <button class="dp-nbtn" id="dpNavQR" title="QR Code">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="3" width="7" height="7" rx="1"/>
+              <rect x="5" y="5" width="3" height="3" fill="currentColor" stroke="none"/>
+              <rect x="14" y="3" width="7" height="7" rx="1"/>
+              <rect x="16" y="5" width="3" height="3" fill="currentColor" stroke="none"/>
+              <rect x="3" y="14" width="7" height="7" rx="1"/>
+              <rect x="5" y="16" width="3" height="3" fill="currentColor" stroke="none"/>
+              <path d="M14 14h3v3h-3z" fill="currentColor" stroke="none"/>
+              <path d="M17 17h4"/>
+              <path d="M21 14v3"/>
+              <path d="M14 17v4"/>
+              <path d="M17 21h4"/>
+            </svg>
+            <span class="dp-nav-lbl">QR Code</span>
+          </button>
+
+        </div>
+      </div>
+
+  </div>
+
+  <script>
+    /* ========= ICONS ========= */
+    const ICONS = {
+      balance: `<svg viewBox="0 0 24 24"><path class="w" d="M4 7h16v12H4z"/><path class="w" d="M4 9h16"/><path class="w" d="M16 14h2"/><path class="w" d="M6 7l2-2h10l2 2"/></svg>`,
+      payMerchant: `<svg viewBox="0 0 24 24"><path class="w" d="M4 9l2-4h12l2 4"/><path class="w" d="M6 9v10h12V9"/><path class="w" d="M9 19v-6h6v6"/></svg>`,
+      sendMobile: `<svg viewBox="0 0 24 24"><circle class="w" cx="12" cy="8" r="4"/><path class="w" d="M4 20c0-4 4-6 8-6s8 2 8 6"/></svg>`,
+      statement: `<svg viewBox="0 0 24 24"><path class="w" d="M7 3h7l3 3v15H7z"/><path class="w" d="M9 10h6"/><path class="w" d="M9 14h6"/><path class="w" d="M9 18h6"/></svg>`,
+      pin: `<svg viewBox="0 0 24 24"><rect class="w" x="6" y="11" width="12" height="10" rx="2"/><path class="w" d="M8 11V8a4 4 0 0 1 8 0v3"/></svg>`,
+      remove: `<svg viewBox="0 0 24 24"><path class="w" d="M6 7h12"/><path class="w" d="M9 7V5h6v2"/><path class="w" d="M8 7l1 14h6l1-14"/></svg>`,
+      freeze: `<svg viewBox="0 0 24 24"><rect class="w" x="4" y="7" width="16" height="10" rx="2"/><path class="w" d="M6 6l12 12"/><path class="w" d="M10 12h4"/></svg>`,
+      tick: `<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="#22c55e"></circle><path d="M7 12.5l3 3 7-7" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"></path></svg>`,
+
+      changePin: `<svg viewBox="0 0 24 24"><circle class="w" cx="8" cy="12" r="3"></circle><path class="w" d="M11 12h10"></path><path class="w" d="M17 12v3"></path><path class="w" d="M14 12v2"></path></svg>`,
+      pinBar: `<svg viewBox="0 0 24 24"><rect class="w" x="6" y="11" width="12" height="10" rx="2"></rect><path class="w" d="M8 11V8a4 4 0 0 1 8 0v3"></path><path class="w" d="M5 5l14 14"></path></svg>`,
+      pinUnbar: `<svg viewBox="0 0 24 24"><rect class="w" x="6" y="11" width="12" height="10" rx="2"></rect><path class="w" d="M9 11V8a4 4 0 0 1 7 0"></path></svg>`,
+
+      fx: `<svg viewBox="0 0 24 24">
+              <path class="w" d="M7 7h10"></path>
+              <path class="w" d="M13 4l4 3-4 3"></path>
+              <path class="w" d="M17 17H7"></path>
+              <path class="w" d="M11 20l-4-3 4-3"></path>
+           </svg>`,
+
+      deposit: `<svg viewBox="0 0 24 24"><rect class="w" x="5" y="15" width="14" height="6" rx="2"/><path class="w" d="M12 3v10"/><path class="w" d="M8.5 9.5L12 13l3.5-3.5"/></svg>`,
+      withdraw: `<svg viewBox="0 0 24 24"><rect class="w" x="5" y="3" width="14" height="6" rx="2"/><path class="w" d="M12 21V11"/><path class="w" d="M8.5 14.5L12 11l3.5 3.5"/></svg>`,
+      acctTransfer: `<svg viewBox="0 0 24 24">
+        <path class="w" d="M7 7h10"></path>
+        <path class="w" d="M13 4l4 3-4 3"></path>
+        <path class="w" d="M17 17H7"></path>
+        <path class="w" d="M11 20l-4-3 4-3"></path>
+      </svg>`
+    };
+
+    /* ========= GROUPS ========= */
+    const GROUPS = {
+      edahab: {
+        title: "eDahab Services",
+        features: [
+          { name:"Wallet Balance", icon:"balance", color:"#1fa463" },
+          { name:"Pay Merchant", icon:"payMerchant", color:"#29c6ad" },
+          { name:"Send Mobile", icon:"sendMobile", color:"#ff5a5f" },
+          { name:"Currency Exchange", icon:"fx", color:"#10b981" },
+          { name:"eDahab Statement", icon:"statement", color:"#111" },
+          { name:"Manage PIN", icon:"pin", color:"#6c5ce7" },
+          { name:"Freeze wrong transfer", icon:"freeze", color:"#0ea5e9" },
+          { name:"Remove Wallet", icon:"remove", color:"#d32f2f" }
+        ]
+      },
+      account: {
+        title: "Account Services",
+        features: [
+          { name:"Account Balance", icon:"balance", color:"#1f6feb" },
+          { name:"Account Deposit", icon:"deposit", color:"#00b894" },
+          { name:"Account Withdrawal", icon:"withdraw", color:"#fdcb6e" },
+          { name:"Account Transfer", icon:"acctTransfer", color:"#10b981" },
+
+          { name:"Pay Merchant", icon:"payMerchant", color:"#29c6ad" },
+          { name:"Send Mobile", icon:"sendMobile", color:"#ff5a5f" },
+
+          /* ✅ Change PIN is present but INACTIVE */
+          { name:"Change PIN", icon:"pin", color:"#6c5ce7", inactive:true },
+
+          { name:"Account Statement", icon:"statement", color:"#111" },
+          { name:"Freeze wrong transfer", icon:"freeze", color:"#0ea5e9" },
+          { name:"Delete Account", icon:"remove", color:"#d32f2f" }
+        ]
+      },
+      remit: {
+        title: "Remittance Services",
+        features: [
+          { name:"Send Remittance", icon:"sendMobile", color:"#6c63ff" },
+          { name:"Remittance Statement", icon:"statement", color:"#111" }
+        ]
+      }
+    };
+
+    /* ========= MODAL + MORE ========= */
+    const moreBtn = document.getElementById("moreBtn");
+    const morePopup = document.getElementById("morePopup");
+
+    const overlay = document.getElementById("overlay");
+    const modal = document.getElementById("modal");
+    const modalTitle = document.getElementById("modalTitle");
+    const modalBody = document.getElementById("modalBody");
+    const closeModalBtn = document.getElementById("closeModal");
+
+    function closeMore(){ morePopup.classList.remove("open"); }
+    function openModal(title, node){
+      modalTitle.textContent = title;
+      modalBody.innerHTML = "";
+      modalBody.appendChild(node);
+      overlay.classList.add("open");
+    }
+    function closeModal(){
+      overlay.classList.remove("open");
+      modalBody.innerHTML = "";
+    }
+
+    moreBtn.addEventListener("click", (e) => {
+      e.stopPropagation();
+      morePopup.classList.toggle("open");
+    });
+    morePopup.addEventListener("click", (e)=>e.stopPropagation());
+
+    document.addEventListener("click", () => { closeMore(); });
+    overlay.addEventListener("click", closeModal);
+    modal.addEventListener("click",(e)=>e.stopPropagation());
+    closeModalBtn.addEventListener("click", closeModal);
+
+    /* ========= UTIL: PIN BOXES ========= */
+    function makePinBoxes(){
+      const wrap = document.createElement("div");
+      wrap.className = "pinBoxes";
+      const inputs = [];
+      for(let i=0;i<4;i++){
+        const inp = document.createElement("input");
+        inp.className = "pinBox";
+        inp.inputMode = "numeric";
+        inp.maxLength = 1;
+        inp.addEventListener("input", () => {
+          inp.value = inp.value.replace(/\D/g,"").slice(0,1);
+          if(inp.value && inputs[i+1]) inputs[i+1].focus();
+        });
+        inp.addEventListener("keydown", (ev) => {
+          if(ev.key==="Backspace" && !inp.value && inputs[i-1]) inputs[i-1].focus();
+        });
+        inputs.push(inp);
+        wrap.appendChild(inp);
+      }
+      wrap.getPin = () => inputs.map(x=>x.value).join("");
+      wrap.focusFirst = () => inputs[0]?.focus();
+      return wrap;
+    }
+
+    /* ========= MANAGE PIN FLOW ========= */
+    function openManagePinMenu(){
+      const menu = document.createElement("div");
+      menu.className = "pinMenu";
+
+      const items = [
+        { label:"Change PIN", icon:"changePin", action:"CHANGE" },
+        { label:"Block PIN (Lost)", icon:"pinBar", action:"BLOCK" },
+        { label:"Unblock PIN (Wrong Attempts)", icon:"pinUnbar", action:"UNBLOCK" }
+      ];
+
+      items.forEach(it => {
+        const row = document.createElement("div");
+        row.className = "pinItem";
+        row.innerHTML = `
+          <div class="pinLeftIcon">${ICONS[it.icon]}</div>
+          <div>${it.label}</div>
+        `;
+        row.addEventListener("click", () => {
+          if(it.action === "CHANGE"){
+            showSimpleConfirm("Change PIN", "Your eDahab PIN has been changed successfully.");
+          }else{
+            openPinActionForm(it.action);
+          }
+        });
+        menu.appendChild(row);
+      });
+
+      openModal("Manage PIN", menu);
+    }
+
+    function openPinActionForm(action){
+      const title = action === "BLOCK" ? "Block PIN (Lost)" : "Unblock PIN (Wrong Attempts)";
+      const form = document.createElement("div");
+      form.className = "form";
+
+      const walletWrap = document.createElement("div");
+      walletWrap.innerHTML = `
+        <div class="fieldLabel">Select your wallet</div>
+        <select class="select" id="pinWallet">
+          <option value="" selected disabled>Select</option>
+          <option>65xxxxxxx</option>
+          <option>62xxxxxxx</option>
+          <option>66xxxxxxx</option>
+        </select>
+      `;
+
+      const pinWrap = document.createElement("div");
+      pinWrap.innerHTML = `<div class="fieldLabel">Enter your eDahab PIN</div>`;
+      const pinBoxes = makePinBoxes();
+      pinWrap.appendChild(pinBoxes);
+
+      const hint = document.createElement("div");
+      hint.className = "hint";
+
+      const btn = document.createElement("button");
+      btn.className = "btnPrimary";
+      btn.textContent = "Proceed";
+
+      btn.addEventListener("click", () => {
+        hint.style.display = "none";
+        const wallet = walletWrap.querySelector("#pinWallet").value;
+        const pin = pinBoxes.getPin();
+        if(!wallet){
+          hint.style.display="block";
+          hint.textContent="Please select your wallet.";
+          return;
+        }
+        if(!/^\d{4}$/.test(pin)){
+          hint.style.display="block";
+          hint.textContent="Please enter a valid 4-digit eDahab PIN.";
+          return;
+        }
+        showPinConfirmation(action);
+      });
+
+      form.append(walletWrap, pinWrap, btn, hint);
+      openModal(title, form);
+      setTimeout(()=>pinBoxes.focusFirst(), 50);
+    }
+
+    function showPinConfirmation(action){
+      const box = document.createElement("div");
+      box.className = "form";
+
+      const msg = (action==="BLOCK")
+        ? "Your eDahab PIN has blocked successfully."
+        : "Your eDahab PIN has unblocked successfully.";
+
+      const extra = (action==="BLOCK")
+        ? `<div style="margin-top:8px;color:var(--muted);font-weight:var(--fw-med);">
+             Contact DahabPlus Support to unblock your pin in the future
+           </div>`
+        : "";
+
+      const note = document.createElement("div");
+      note.className = "hint";
+      note.style.display = "block";
+      note.innerHTML = `
+        <div class="confirmRow">
+          <div class="tickIcon">${ICONS.tick}</div>
+          <div>
+            <div style="font-weight:var(--fw-heavy);margin-bottom:4px;">Success</div>
+            <div>${msg}</div>
+            ${extra}
+          </div>
+        </div>
+      `;
+
+      const done = document.createElement("button");
+      done.className = "btnPrimary";
+      done.textContent = "Done";
+      done.addEventListener("click", closeModal);
+
+      box.append(note, done);
+      openModal("Confirmation", box);
+    }
+
+    function showSimpleConfirm(title, text){
+      const box = document.createElement("div");
+      box.className = "form";
+
+      const note = document.createElement("div");
+      note.className = "hint";
+      note.style.display="block";
+      note.innerHTML = `
+        <div class="confirmRow">
+          <div class="tickIcon">${ICONS.tick}</div>
+          <div>
+            <div style="font-weight:var(--fw-heavy);margin-bottom:4px;">Success</div>
+            <div>${text}</div>
+          </div>
+        </div>
+      `;
+
+      const done = document.createElement("button");
+      done.className = "btnPrimary";
+      done.textContent = "Done";
+      done.addEventListener("click", closeModal);
+
+      box.append(note, done);
+      openModal(title, box);
+    }
+
+    /* ========= FREEZE FLOW (NO DATE/TIME FIELD) ========= */
+    function pad(n){ return String(n).padStart(2,"0"); }
+    function fmtDT(d){
+      return `${d.getFullYear()}-${pad(d.getMonth()+1)}-${pad(d.getDate())} ${pad(d.getHours())}:${pad(d.getMinutes())}`;
+    }
+    function formatAmount(amount, currency, context){
+      if(context==="account") return `$ ${Number(amount).toFixed(2)}`;
+      if(currency==="USD") return `$ ${Number(amount).toFixed(2)}`;
+      return `${Math.round(Number(amount)).toLocaleString("en-US")} SLSH`;
+    }
+
+    function openFreezeForm(context){
+      const form = document.createElement("div");
+      form.className = "form";
+
+      const initiators = (context==="edahab")
+        ? ["65xxxxxxx","62xxxxxxx","66xxxxxxx"]
+        : ["DMT Account • HRGDxxxx","DBI Account • 102xxxxxx"];
+
+      const initiatorBlock = document.createElement("div");
+      initiatorBlock.innerHTML = `
+        <div class="fieldLabel">Select Initiator</div>
+        <select class="select" id="fzInitiator">
+          <option value="" selected disabled>Select</option>
+          ${initiators.map(x=>`<option value="${x}">${x}</option>`).join("")}
+        </select>
+      `;
+
+      const rxTypeBlock = document.createElement("div");
+      rxTypeBlock.innerHTML = `
+        <div class="fieldLabel">Receiver Type</div>
+        <select class="select" id="fzReceiverType">
+          <option value="" selected disabled>Select</option>
+          <option value="Subscriber">Subscriber</option>
+          <option value="Merchant">Merchant</option>
+        </select>
+      `;
+
+      const rxBlock = document.createElement("div");
+      rxBlock.innerHTML = `
+        <div class="fieldLabel" id="fzRxLabel">Receiver</div>
+        <input class="textInput" id="fzReceiver" placeholder="Select Receiver Type first" disabled />
+      `;
+
+      let currencyBlock = null;
+      if(context==="edahab"){
+        currencyBlock = document.createElement("div");
+        currencyBlock.innerHTML = `
+          <div class="fieldLabel">Currency</div>
+          <select class="select" id="fzCurrency">
+            <option value="" selected disabled>Select</option>
+            <option value="USD">USD</option>
+            <option value="SLSH">SLSH</option>
+          </select>
+        `;
+      }
+
+      const amtBlock = document.createElement("div");
+      amtBlock.innerHTML = `
+        <div class="fieldLabel">Enter Amount</div>
+        <input class="textInput" id="fzAmount" inputmode="decimal" placeholder="Enter amount" />
+      `;
+
+      const btn = document.createElement("button");
+      btn.className = "btnPrimary";
+      btn.textContent = "Check Transaction (Last 72 hours)";
+
+      const hint = document.createElement("div");
+      hint.className = "hint";
+
+      const rxTypeEl = rxTypeBlock.querySelector("#fzReceiverType");
+      const rxLabelEl = rxBlock.querySelector("#fzRxLabel");
+      const rxEl = rxBlock.querySelector("#fzReceiver");
+
+      rxTypeEl.addEventListener("change", () => {
+        rxEl.disabled = false;
+        rxEl.value = "";
+        if(rxTypeEl.value==="Subscriber"){
+          rxLabelEl.textContent = "Subscriber Number";
+          rxEl.placeholder = "Must start with 65, 62, or 66";
+          rxEl.inputMode = "numeric";
+        }else{
+          rxLabelEl.textContent = "Merchant Code";
+          rxEl.placeholder = "Enter Merchant Code";
+          rxEl.inputMode = "text";
+        }
+      });
+
+      rxEl.addEventListener("input", () => {
+        if(rxTypeEl.value==="Subscriber"){
+          rxEl.value = rxEl.value.replace(/\D/g,"");
+        }
+      });
+
+      const amtEl = amtBlock.querySelector("#fzAmount");
+      amtEl.addEventListener("input", () => {
+        amtEl.value = amtEl.value.replace(/[^0-9.]/g,"");
+        const parts = amtEl.value.split(".");
+        if(parts.length>2) amtEl.value = parts[0]+"."+parts.slice(1).join("");
+      });
+
+      btn.addEventListener("click", () => {
+        hint.style.display="none";
+        hint.textContent="";
+
+        const initiator = initiatorBlock.querySelector("#fzInitiator").value;
+        const rxType = rxTypeEl.value;
+        const receiver = (rxEl.value||"").trim();
+        const amountStr = (amtEl.value||"").trim();
+
+        const currency = (context==="edahab")
+          ? (currencyBlock.querySelector("#fzCurrency").value)
+          : "USD";
+
+        if(!initiator){ showHint(hint,"Please select Initiator."); return; }
+        if(!rxType){ showHint(hint,"Please select Receiver Type."); return; }
+        if(!receiver){ showHint(hint, rxType==="Subscriber" ? "Please enter Subscriber number." : "Please enter Merchant code."); return; }
+        if(rxType==="Subscriber" && !/^(65|62|66)\d+$/.test(receiver)){
+          showHint(hint,"Subscriber number must start with 65, 62, or 66.");
+          return;
+        }
+        if(context==="edahab" && !currency){ showHint(hint,"Please select Currency."); return; }
+        if(!amountStr || isNaN(parseFloat(amountStr))){ showHint(hint,"Please enter a valid Amount."); return; }
+
+        const amount = parseFloat(amountStr);
+
+        if(currency==="USD" && amount < 3){ showHint(hint,"Minimum freeze amount is $3."); return; }
+        if(currency==="SLSH" && amount < 30000){ showHint(hint,"Minimum freeze amount is 30,000 SLSH."); return; }
+
+        const now = new Date();
+        const rxLabel = (rxType==="Merchant") ? `Merchant • ${receiver}` : `Subscriber • ${receiver}`;
+        const txs = [
+          { date: new Date(now.getTime() - 35*60*1000), receiver: rxLabel, amount, currency, context },
+          { date: new Date(now.getTime() - 95*60*1000), receiver: rxLabel, amount, currency, context }
+        ];
+
+        openFreezeResults({ rxType, receiver, currency, context, txs });
+      });
+
+      form.append(initiatorBlock, rxTypeBlock, rxBlock);
+      if(currencyBlock) form.append(currencyBlock);
+      form.append(amtBlock, btn, hint);
+
+      openModal("Freeze wrong transfer", form);
+    }
+
+    function showHint(el, msg){
+      el.style.display="block";
+      el.textContent = msg;
+    }
+
+    function openFreezeResults(payload){
+      const box = document.createElement("div");
+      box.className = "freezeList";
+
+      const info = document.createElement("div");
+      info.className = "hint";
+      info.style.display="block";
+      info.innerHTML = `
+        <div style="font-weight:var(--fw-heavy);margin-bottom:6px;">Found Transactions (Last 72 hours)</div>
+        <div style="color:var(--muted);font-weight:var(--fw-med);">
+          Receiver: ${payload.rxType} • ${payload.receiver}<br/>
+          ${payload.context==="edahab" ? `Currency: ${payload.currency}<br/>` : ""}
+        </div>
+      `;
+
+      const listWrap = document.createElement("div");
+      listWrap.innerHTML = payload.txs.map((t, idx) => `
+        <label class="freezeTx">
+          <div class="freezeTxLeft">
+            <div class="freezeTxTop">${formatAmount(t.amount, t.currency, t.context)}</div>
+            <div class="freezeTxMeta">Date & Time: ${fmtDT(t.date)}</div>
+            <div class="freezeTxMeta">Receiver: ${t.receiver}</div>
+          </div>
+          <input class="freezeRadio" type="radio" name="fzTx" value="${idx}">
+        </label>
+      `).join("");
+
+      const selectBtn = document.createElement("button");
+      selectBtn.className = "btnPrimary";
+      selectBtn.textContent = "Select Transaction";
+
+      const hint = document.createElement("div");
+      hint.className = "hint";
+
+      selectBtn.addEventListener("click", () => {
+        hint.style.display="none";
+        hint.textContent="";
+        const checked = document.querySelector('input[name="fzTx"]:checked');
+        if(!checked){ showHint(hint, "Please select a transaction."); return; }
+        const chosen = payload.txs[parseInt(checked.value,10)];
+        openFreezePinStep(chosen);
+      });
+
+      box.append(info, listWrap, selectBtn, hint);
+      openModal("Transaction Details", box);
+    }
+
+    function openFreezePinStep(tx){
+      const box = document.createElement("div");
+      box.className = "form";
+
+      const summary = document.createElement("div");
+      summary.className = "hint";
+      summary.style.display="block";
+      summary.innerHTML = `
+        <div style="font-weight:var(--fw-heavy);margin-bottom:6px;">Selected Transaction</div>
+        <div style="color:var(--muted);font-weight:var(--fw-med);">
+          Date & Time: ${fmtDT(tx.date)}<br/>
+          Amount: ${formatAmount(tx.amount, tx.currency, tx.context)}<br/>
+          Receiver: ${tx.receiver}
+        </div>
+      `;
+
+      const pinWrap = document.createElement("div");
+      pinWrap.innerHTML = `<div class="fieldLabel">Enter your PIN</div>`;
+      const pinBoxes = makePinBoxes();
+      pinWrap.appendChild(pinBoxes);
+
+      const btn = document.createElement("button");
+      btn.className = "btnPrimary";
+      btn.textContent = "Freeze";
+
+      const hint = document.createElement("div");
+      hint.className = "hint";
+
+      btn.addEventListener("click", () => {
+        hint.style.display="none";
+        hint.textContent="";
+        const pin = pinBoxes.getPin();
+        if(!/^\d{4}$/.test(pin)){
+          showHint(hint,"Please enter a valid 4-digit PIN.");
+          return;
+        }
+        openFreezeConfirmation(tx);
+      });
+
+      box.append(summary, pinWrap, btn, hint);
+      openModal("Enter PIN", box);
+      setTimeout(()=>pinBoxes.focusFirst(), 50);
+    }
+
+    function openFreezeConfirmation(tx){
+      const box = document.createElement("div");
+      box.className = "form";
+
+      const msg = document.createElement("div");
+      msg.className = "hint";
+      msg.style.display="block";
+      msg.innerHTML = `
+        <div class="confirmRow">
+          <div class="tickIcon">${ICONS.tick}</div>
+          <div>
+            <div style="font-weight:var(--fw-heavy);margin-bottom:4px;">Transaction Frozen</div>
+            <div>This amount (${formatAmount(tx.amount, tx.currency, tx.context)}) has been Frozen from (${tx.receiver}), contact DahabPlus Support to Follow up with Refund Procedure.</div>
+          </div>
+        </div>
+      `;
+
+      const done = document.createElement("button");
+      done.className = "btnPrimary";
+      done.textContent = "Done";
+      done.addEventListener("click", closeModal);
+
+      box.append(msg, done);
+      openModal("Confirmation", box);
+    }
+
+    /* ========= GROUP GRID ========= */
+    function openGroup(key){
+      const group = GROUPS[key];
+      if(!group) return;
+
+      const grid = document.createElement("div");
+      grid.className = "grid";
+
+      group.features.forEach(f => {
+        const tile = document.createElement("div");
+        tile.className = "tile";
+
+        // ✅ Make inactive feature not clickable (Change PIN in Account Services)
+        if(f.inactive){
+          tile.style.opacity = "0.55";
+          tile.style.pointerEvents = "none";
+        }
+
+        tile.innerHTML = `
+          <div class="tileCircle" style="background:${f.color}">
+            ${ICONS[f.icon] || ICONS.statement}
+          </div>
+          <div class="tileName">${f.name}</div>
+        `;
+
+        tile.addEventListener("click", (ev) => {
+          ev.stopPropagation();
+
+          if(f.name === "Manage PIN"){
+            openManagePinMenu();
+            return;
+          }
+          if(f.name === "Freeze wrong transfer"){
+            openFreezeForm(key === "account" ? "account" : "edahab");
+            return;
+          }
+          if(f.name === "Currency Exchange"){
+            showSimpleConfirm("Currency Exchange", "Currency exchange action completed successfully.");
+            return;
+          }
+
+          showSimpleConfirm(f.name, `Action completed successfully.`);
+        });
+
+        grid.appendChild(tile);
+      });
+
+      openModal(group.title, grid);
+      closeMore();
+    }
+
+    document.querySelectorAll(".groupBtn").forEach(btn => {
+      btn.addEventListener("click", (e) => {
+        e.stopPropagation();
+        openGroup(btn.getAttribute("data-group"));
+      });
+    });
+
+    /* Quick action shortcuts */
+    document.getElementById("qaMerchant").addEventListener("click", ()=>openGroup("edahab"));
+    document.getElementById("qaSubscriber").addEventListener("click", ()=>openGroup("edahab"));
+
+
+    /* ═══ BOTTOM NAV ═══ */
+    (function(){
+      // Attach active state to nav buttons
+      var navBtns = document.querySelectorAll('.dp-nbtn');
+      navBtns.forEach(function(btn){
+        btn.addEventListener('click', function(){
+          navBtns.forEach(function(b){ b.classList.remove('dp-active'); });
+          btn.classList.add('dp-active');
+        });
+      });
+
+      // Somtel FAB: send postMessage to parent to open Somtel login
+      var somtelFab = document.getElementById('dpNavSomtel');
+      if(somtelFab){
+        somtelFab.addEventListener('click', function(e){
+          e.preventDefault();
+          e.stopPropagation();
+          if(typeof window.openSomtelLogin === 'function'){
+            window.openSomtelLogin();
+          } else {
+            console.warn('openSomtelLogin not ready yet');
+          }
+        });
+        somtelFab.style.pointerEvents = 'auto';
+      }
+    })();
+</script>
+
+</div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ═══ SOMTEL LOGIN OVERLAY (from DahabPlus) ═══ -->
+  <div class="somtel-overlay" id="somtelOverlay">
+    <div class="somtel-shell">
+
+      <!-- HEADER -->
+      <div class="somtel-login-header">
+        <button class="somtel-back-btn" id="somtelBackBtn" title="Back">&#8592;</button>
+        <div class="somtel-logo-wrap">
+          <img src="data:image/png;base64,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" alt="Somtel"/>
+        </div>
+        <div class="somtel-brand-name">Somtel</div>
+        <div class="somtel-brand-tagline">Somtel SuperApp</div>
+      </div>
+
+      <!-- LOGIN BODY -->
+      <div class="somtel-login-body">
+        <div>
+          <div class="somtel-field-label">Username or Phone</div>
+          <input class="somtel-input" id="somtelUser" type="text" placeholder="Enter username or phone"/>
+        </div>
+        <div>
+          <div class="somtel-field-label">Password</div>
+          <div class="somtel-pw-wrap">
+            <input class="somtel-input" id="somtelPass" type="password" placeholder="Enter password"/>
+            <button class="somtel-pw-toggle" id="somtelPwToggle">Show</button>
+          </div>
+        </div>
+        <button class="somtel-login-btn" id="somtelLoginBtn">Sign In to Somtel</button>
+        <div class="somtel-divider"><span>Somtel SuperApp</span></div>
+        <div class="somtel-forgot">Forgot password?</div>
+      </div>
+
+    </div>
+  </div>
+
+
+<script>
+(function(){
+  function get(id){ return document.getElementById(id); }
+
+  function showEdahabAppState(){
+    var edahabOverlay = get('edahabOverlay');
+    var edahabLogin = get('edahabLogin');
+    var edahabApp = get('edahabApp');
+    if (edahabOverlay) edahabOverlay.classList.add('open');
+    if (edahabLogin) edahabLogin.style.display = 'none';
+    if (edahabApp) edahabApp.classList.add('visible');
+  }
+
+function openSomtelLoginFixed(){
+    var somtelOverlay = get('somtelOverlay');
+    var edahabOverlay = get('edahabOverlay');
+    
+    // 1. Set the launcher state to Somtel
+    window.lastLauncher = 'somtel';
+    
+    // 2. Close the eDahab wallet view
+    if (edahabOverlay) edahabOverlay.classList.remove('open');
+    
+    // 3. BYPASS: Explicitly ensure the Somtel login overlay is NOT opened
+    // We remove 'open' instead of adding it.
+    if (somtelOverlay) somtelOverlay.classList.remove('open');
+    
+    console.log("Somtel Login Bypassed: Landing on Dashboard");
+  }
+
+  function closeSomtelLoginFixed(){
+    var somtelOverlay = get('somtelOverlay');
+    if (somtelOverlay) somtelOverlay.classList.remove('open');
+    if (window.lastLauncher === 'dahabplus') {
+      showEdahabAppState();
+    }
+  }
+
+  function doSomtelLoginFixed(){
+    var somtelOverlay = get('somtelOverlay');
+    var somtelLoginBtn = get('somtelLoginBtn');
+    if (somtelLoginBtn) {
+      somtelLoginBtn.textContent = 'Signing in…';
+      somtelLoginBtn.disabled = true;
+    }
+    setTimeout(function(){
+      if (somtelLoginBtn) {
+        somtelLoginBtn.textContent = 'Sign In to Somtel';
+        somtelLoginBtn.disabled = false;
+      }
+      window.lastLauncher = 'somtel';
+      if (somtelOverlay) somtelOverlay.classList.remove('open');
+    }, 500);
+  }
+
+  window.openSomtelLogin = openSomtelLoginFixed;
+  window.doSomtelLogin = doSomtelLoginFixed;
+  window.closeSomtelLogin = closeSomtelLoginFixed;
+
+  var somtelBtn = get('dpNavSomtel');
+  if (somtelBtn) {
+    somtelBtn.setAttribute('onclick', 'window.openSomtelLogin(); return false;');
+    somtelBtn.style.pointerEvents = 'auto';
+    somtelBtn.style.zIndex = '9999';
+    somtelBtn.addEventListener('click', function(e){
+      e.preventDefault();
+      e.stopPropagation();
+      window.openSomtelLogin();
+      return false;
+    }, true);
+  }
+
+  var somtelLoginBtn = get('somtelLoginBtn');
+  if (somtelLoginBtn) {
+    somtelLoginBtn.setAttribute('type', 'button');
+    somtelLoginBtn.setAttribute('onclick', 'window.doSomtelLogin(); return false;');
+    somtelLoginBtn.style.pointerEvents = 'auto';
+    somtelLoginBtn.style.position = 'relative';
+    somtelLoginBtn.style.zIndex = '9999';
+    somtelLoginBtn.addEventListener('click', function(e){
+      e.preventDefault();
+      e.stopPropagation();
+      window.doSomtelLogin();
+      return false;
+    }, true);
+  }
+
+  var somtelBackBtn = get('somtelBackBtn');
+  if (somtelBackBtn) {
+    somtelBackBtn.setAttribute('type', 'button');
+    somtelBackBtn.addEventListener('click', function(e){
+      e.preventDefault();
+      e.stopPropagation();
+      window.closeSomtelLogin();
+      return false;
+    }, true);
+  }
+
+  var somtelPwToggle = get('somtelPwToggle');
+  var somtelPass = get('somtelPass');
+  if (somtelPwToggle && somtelPass) {
+    somtelPwToggle.setAttribute('type', 'button');
+    somtelPwToggle.addEventListener('click', function(e){
+      e.preventDefault();
+      var isPass = somtelPass.type === 'password';
+      somtelPass.type = isPass ? 'text' : 'password';
+      somtelPwToggle.textContent = isPass ? 'Hide' : 'Show';
+    }, true);
+  }
+
+  var somtelOverlay = get('somtelOverlay');
+  if (somtelOverlay) {
+    somtelOverlay.addEventListener('click', function(e){
+      if (e.target === somtelOverlay) window.closeSomtelLogin();
+    }, true);
+  }
+})();
+</script>
+
+</body>
+</html>
